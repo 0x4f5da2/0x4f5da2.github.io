@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="发现了一个不错的有关CS专业基本素养的课程，简单的过了一下，对自己不熟的部分简单进行了整理😀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Missing Semester笔记">
+<meta property="og:url" content="http://blog.4f5da2.com/2020/05/18/missing/index.html">
+<meta property="og:site_name" content="4F5DA2&#39;s BLOG">
+<meta property="og:description" content="发现了一个不错的有关CS专业基本素养的课程，简单的过了一下，对自己不熟的部分简单进行了整理😀">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-01-13T07:14:14.261Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Missing Semester笔记">
+<meta name="twitter:description" content="发现了一个不错的有关CS专业基本素养的课程，简单的过了一下，对自己不熟的部分简单进行了整理😀">
+
+
+
+
+
+
+  <link rel="canonical" href="http://blog.4f5da2.com/2020/05/18/missing/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>The Missing Semester笔记 | 4F5DA2's BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">4F5DA2's BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Quietly Brilliant</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.4f5da2.com/2020/05/18/missing/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="4F5DA2">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4F5DA2's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">The Missing Semester笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-19 03:47:00" itemprop="dateCreated datePublished" datetime="2020-05-19T03:47:00+08:00">2020-05-19</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2020/05/18/missing/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/05/18/missing/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>发现了一个不错的有关CS专业基本素养的课程，简单的过了一下，对自己不熟的部分简单进行了整理😀</p>
+<a id="more"></a>
+<h2 id="课程链接"><a href="#课程链接" class="headerlink" title="课程链接"></a>课程链接</h2><p>主页：<a href="https://missing.csail.mit.edu" target="_blank" rel="noopener">https://missing.csail.mit.edu</a></p>
+<p>视频：<a href="https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J</a></p>
+<h2 id="Shell及相关命令"><a href="#Shell及相关命令" class="headerlink" title="Shell及相关命令"></a>Shell及相关命令</h2><ul>
+<li>如果需要进入一个目录，需要有对应的<code>x</code>权限；如果需要读取目录下的文件，需要有对应的<code>r</code>权限</li>
+<li>使用<code>&gt;&gt;</code>在一个文件最后附加内容</li>
+<li>诸如<code>|</code>, <code>&lt;</code>, <code>&gt;</code>一类的操作是由shell完成的，又是会由于shell的权限不够而出错。例如：<code>sudo echo 3 &gt; brightness</code>，可以使用<code>echo 3 | sudo tee brightness</code>进行解决</li>
+<li><code>man</code>或者<code>--help</code>的命令解释：<code>...</code>表示零个或多个；<code>[]</code>表示可选</li>
+<li>用<code>&#39;</code>分隔的字符串是文字字符串，不会替代变量值，而<code>&quot;</code>分隔的字符串将替换变量值</li>
+<li><p>函数定义</p>
+  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">mcd</span></span> () &#123;</span><br><span class="line">    mkdir -p <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line">    <span class="built_in">cd</span> <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bash脚本的特殊变量</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$0 - Name of the script</span><br><span class="line">$1 to $9 - Arguments to the script. $1 is the first argument and so on.</span><br><span class="line">$@ - All the arguments</span><br><span class="line">$# - Number of arguments</span><br><span class="line">$? - Return code of the previous command</span><br><span class="line">$$ - Process Identification number for the current script</span><br><span class="line">!! - Entire last command, including arguments. A common pattern is to execute a command only for it to fail due to missing permissions, then you can quickly execute it with sudo by doing sudo !!</span><br><span class="line">$_ - Last argument from the last command. If you are in an interactive shell, you can also quickly get this value by typing Esc followed by .</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bash脚本可以写在一行，用<code>;</code>分开</p>
+</li>
+<li>使用<code>$(COMMAND)</code>时，它将执行<code>CMD</code>，获取命令的输出并将其替换</li>
+<li><code>&lt;(CMD)</code>将执行<code>CMD</code>并将输出放置在临时文件中，并用该文件名替换<code>&lt;()</code>。例如，<code>diff &lt;(ls foo) &lt;(ls bar)</code>将显示foo和bar中的文件之间的差异</li>
+<li>可以使用<code>man test</code>查看bash实现中的比较</li>
+<li>Bash脚本中<code>test</code>、单方括号和双方括号的差别：<a href="http://mywiki.wooledge.org/BashFAQ/031" target="_blank" rel="noopener">http://mywiki.wooledge.org/BashFAQ/031</a></li>
+<li>使用<code>?</code>作为单个字符的占位符</li>
+<li>花括号用于将bash自动命令拓展扩展，例如<code>{foo,bar}</code>或者<code>{a..h}</code>。在移动或转换文件时，这非常方便。例如<code>cp /path/to/project/{foo,bar,baz}.sh /newpath</code></li>
+<li>可以在脚本中使用<code>env</code>使得脚本更加通用，例如<code>#! /usr/bin/env python3</code></li>
+<li>使用<code>find</code>实时查找，使用<code>locate</code>在数据缓存中查找</li>
+<li>在zsh中使用ctrl+R来搜索历史命令</li>
+<li>使用<code>xargs</code>从管道中获取运行参数</li>
+<li><code>2&gt;</code>表示stderr</li>
+<li>使用ctrl+z挂起当前进程；使用<code>bg</code>+编号继续在后台执行命令，如：<code>bg %1</code>；使用<code>fg</code>将后台程序调到前台；使用<code>jobs</code>查看后台的进程；</li>
+<li><p><code>tmux</code>的<a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/" target="_blank" rel="noopener">相关资料</a>以及常用命令</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Sessions - a session is an independent workspace with one or more windows</span><br><span class="line">tmux Starts a new session.</span><br><span class="line">tmux new -s NAME Starts it with that name.</span><br><span class="line">tmux ls Lists the current sessions</span><br><span class="line"></span><br><span class="line">Windows - Equivalent to tabs in editors or browsers, they are visually separate parts of the same session</span><br><span class="line">&lt;C-b&gt; c Creates a new window. To close it you can just terminate the shells doing &lt;C-d&gt;</span><br><span class="line">&lt;C-b&gt; N Go to the N th window. Note they are numbered</span><br><span class="line">&lt;C-b&gt; p Goes to the previous window</span><br><span class="line">&lt;C-b&gt; n Goes to the next window</span><br><span class="line">&lt;C-b&gt; , Rename the current window</span><br><span class="line">&lt;C-b&gt; w List current windows</span><br><span class="line"></span><br><span class="line">Panes - Like vim splits, panes let you have multiple shells in the same visual display.</span><br><span class="line">&lt;C-b&gt; &quot; Split the current pane horizontally</span><br><span class="line">&lt;C-b&gt; % Split the current pane vertically</span><br><span class="line">&lt;C-b&gt; &lt;direction&gt; Move to the pane in the specified direction. Direction here means arrow keys.</span><br><span class="line">&lt;C-b&gt; z Toggle zoom for the current pane</span><br><span class="line">&lt;C-b&gt; [ Start scrollback. You can then press &lt;space&gt; to start a selection and &lt;enter&gt; to copy that selection.</span><br><span class="line">&lt;C-b&gt; &lt;space&gt; Cycle through pane arrangements.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>rsync</code>是在<code>scp</code>上改进而来的，他能提供更加细粒度的控制</p>
+</li>
+<li>可以在<code>ssh</code>之上使用端口转发，端口转发分为本地端口转发，即把本地端口的数据发送到远端，如<code>ssh -L 9999:localhost:8888 foobar@remote_server</code>；和远端端口转发到本地，如<code>ssh -R 8888:localhost:9999 foobar@remote_server</code></li>
+<li><p>配置<code>~/.ssh/config</code>使得连接服务器更加方便：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host vm</span><br><span class="line">    User foobar</span><br><span class="line">    HostName 172.16.174.141</span><br><span class="line">    Port 2222</span><br><span class="line">    IdentityFile ~/.ssh/id_ed25519</span><br><span class="line">    LocalForward 9999 localhost:8888</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>sshfs</code>挂载远端的目录：<code>sshfs [user@]hostname:[directory] mountpoint</code></p>
+</li>
+</ul>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ul>
+<li>Pro Git：<a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">https://git-scm.com/book/en/v2</a></li>
+<li>在Git中，“当前所在的位置”称为“ HEAD”</li>
+<li>Git常用命令  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"># Basics</span><br><span class="line">git help &lt;command&gt;: get help for a git command</span><br><span class="line">git init: creates a new git repo, with data stored in the .git directory</span><br><span class="line">git status: tells you what’s going on</span><br><span class="line">git add &lt;filename&gt;: adds files to staging area</span><br><span class="line">git commit: creates a new commit</span><br><span class="line">Write good commit messages!</span><br><span class="line">git log: shows a flattened log of history</span><br><span class="line">git log --all --graph --decorate: visualizes history as a DAG</span><br><span class="line">git diff &lt;filename&gt;: show differences since the last commit</span><br><span class="line">git diff &lt;revision&gt; &lt;filename&gt;: shows differences in a file between snapshots</span><br><span class="line">git checkout &lt;revision&gt;: updates HEAD and current branch</span><br><span class="line"></span><br><span class="line"># Branching and merging</span><br><span class="line">git branch: shows branches</span><br><span class="line">git branch &lt;name&gt;: creates a branch</span><br><span class="line">git checkout -b &lt;name&gt;: creates a branch and switches to it</span><br><span class="line">same as git branch &lt;name&gt;; git checkout &lt;name&gt;</span><br><span class="line">git merge &lt;revision&gt;: merges into current branch</span><br><span class="line">git mergetool: use a fancy tool to help resolve merge conflicts</span><br><span class="line">git rebase: rebase set of patches onto a new base</span><br><span class="line"></span><br><span class="line"># Remotes</span><br><span class="line">git remote: list remotes</span><br><span class="line">git remote add &lt;name&gt; &lt;url&gt;: add a remote</span><br><span class="line">git push &lt;remote&gt; &lt;local branch&gt;:&lt;remote branch&gt;: send objects to remote, and update remote reference</span><br><span class="line">git branch --set-upstream-to=&lt;remote&gt;/&lt;remote branch&gt;: set up correspondence between local and remote branch</span><br><span class="line">git fetch: retrieve objects/references from a remote</span><br><span class="line">git pull: same as git fetch; git merge</span><br><span class="line">git clone: download repository from remote</span><br><span class="line"></span><br><span class="line"># Undo</span><br><span class="line">git commit --amend: edit a commit’s contents/message</span><br><span class="line">git reset HEAD &lt;file&gt;: unstage a file</span><br><span class="line">git checkout -- &lt;file&gt;: discard changes</span><br><span class="line"></span><br><span class="line"># Advanced Git</span><br><span class="line">git config: Git is highly customizable</span><br><span class="line">git clone --shallow: clone without entire version history</span><br><span class="line">git add -p: interactive staging</span><br><span class="line">git rebase -i: interactive rebasing</span><br><span class="line">git blame: show who last edited which line</span><br><span class="line">git stash: temporarily remove modifications to working directory</span><br><span class="line">git bisect: binary search history (e.g. for regressions)</span><br><span class="line">.gitignore: specify intentionally untracked files to ignore</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Profiling-and-Debugging"><a href="#Profiling-and-Debugging" class="headerlink" title="Profiling and Debugging"></a>Profiling and Debugging</h2><ul>
+<li><p>使用ipdb对Python程序进行调试：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">l(ist) - Displays 11 lines around the current line or continue the previous listing.</span><br><span class="line">s(tep) - Execute the current line, stop at the first possible occasion.</span><br><span class="line">n(ext) - Continue execution until the next line in the current function is reached or it returns.</span><br><span class="line">b(reak) - Set a breakpoint (depending on the argument provided).</span><br><span class="line">p(rint) - Evaluate the expression in the current context and print its value. There’s also pp to display using pprint instead.</span><br><span class="line">r(eturn) - Continue execution until the current function returns.</span><br><span class="line">q(uit) - Quit the debugger.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>pyflakes</code>、<code>mypy</code>等程序代码进行静态检查</p>
+</li>
+<li>使用<code>time</code>命令对一个命令的运行时间进行分析</li>
+<li>使用<code>cProfile</code>对Python程序的调用耗时进行分析，例如<code>python -m cProfile -s tottime grep.py</code>；使用<code>line_profiler</code>对每一行的耗时进行分析，例如<code>kernprof -l -v test.py</code></li>
+<li>使用<code>memory-profiler</code>对内存占用进行分析，例如<code>python -m memory_profiler example.py</code></li>
+<li>使用<code>pycallgraph</code>分析程序的调用情况</li>
+<li>使用<code>ncdu</code>分析磁盘占用</li>
+<li>使用<code>hyperfine</code>进行基准测试</li>
+</ul>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><ul>
+<li><p>设置守护进程</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># /etc/systemd/system/myapp.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=My Custom App</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=foo</span><br><span class="line">Group=foo</span><br><span class="line">WorkingDirectory=/home/foo/projects/mydaemon</span><br><span class="line">ExecStart=/usr/bin/local/python3.7 app.py</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Linux中各个目录的用途，详细参看<a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard" target="_blank" rel="noopener">FHS</a></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/bin - Essential command binaries</span><br><span class="line">/sbin - Essential system binaries, usually to be run by root</span><br><span class="line">/dev - Device files, special files that often are interfaces to hardware devices</span><br><span class="line">/etc - Host-specific system-wide configuration files</span><br><span class="line">/home - Home directories for users in the system</span><br><span class="line">/lib - Common libraries for system programs</span><br><span class="line">/opt - Optional application software</span><br><span class="line">/sys - Contains information and configuration for the system</span><br><span class="line">/tmp - Temporary files (also /var/tmp). Usually deleted between reboots.</span><br><span class="line">/usr/ - Read only user data</span><br><span class="line">    /usr/bin - Non-essential command binaries</span><br><span class="line">    /usr/sbin - Non-essential system binaries, usually to be run by root</span><br><span class="line">    /usr/local/bin - Binaries for user compiled programs</span><br><span class="line">/var - Variable files like logs or caches</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>4F5DA2</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.4f5da2.com/2020/05/18/missing/" title="The Missing Semester笔记">http://blog.4f5da2.com/2020/05/18/missing/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/26/tldr-dl/" rel="next" title="TL;DR for DL">
+                <i class="fa fa-chevron-left"></i> TL;DR for DL
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/01/self-hosted/" rel="prev" title="Web服务搭建笔记">
+                Web服务搭建笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">4F5DA2</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/0x4f5da2" title="GitHub &rarr; https://github.com/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://steamcommunity.com/id/0x4f5da2" title="Steam &rarr; https://steamcommunity.com/id/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://great-li-xin.github.io" title="https://great-li-xin.github.io" rel="noopener" target="_blank">Great-Li-Xin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.lightina.cn" title="http://blog.lightina.cn" rel="noopener" target="_blank">jacklightChen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.handora.me" title="http://blog.handora.me" rel="noopener" target="_blank">Handora</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/27854b505130" title="https://www.jianshu.com/u/27854b505130" rel="noopener" target="_blank">413x</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/oneday_pyf" title="https://blog.csdn.net/oneday_pyf" rel="noopener" target="_blank">OneDay_pyf</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yisaer.github.io" title="https://yisaer.github.io" rel="noopener" target="_blank">Yisaer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/m_oman" title="https://blog.csdn.net/m_oman" rel="noopener" target="_blank">CoCoManYY</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/yr12Dong" title="https://me.csdn.net/yr12Dong" rel="noopener" target="_blank">12Dong</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#课程链接"><span class="nav-number">1.</span> <span class="nav-text">课程链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell及相关命令"><span class="nav-number">2.</span> <span class="nav-text">Shell及相关命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-number">3.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Profiling-and-Debugging"><span class="nav-number">4.</span> <span class="nav-text">Profiling and Debugging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Misc"><span class="nav-number">5.</span> <span class="nav-text">Misc</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4F5DA2</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+  <script>
+    var _mtac = {};
+    (function() {
+      var mta = document.createElement("script");
+      mta.src = "https://pingjs.qq.com/h5/stats.js";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500654405");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+
+
+
+  <script>
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65819248";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'WniJVKEoQxAowKO3HKtNs4vX-gzGzoHsz',
+    appKey: 'Cl8lmwarMB7thoEPmBOONarz',
+    placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！~',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div id="particles-js" style="position: fixed; top: 0px; left: 0px; z-index: -1; width: 100%; height: 100%"></div>
+  <script src="/js/src/particles.js"></script>
+  <script>particlesJS.load('particles-js', '/js/src/particlesjs-config.json')</script>
+</body>
+</html>
