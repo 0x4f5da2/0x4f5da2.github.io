@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="最近面试，复习并总结了一波基础知识。(￣▽￣)” 首先，肥肠感谢lightina的博客，从中抄到了很多东西，省去了翻书整理的时间学到了很多东西，收获颇丰。 其实都学过，然而……忘的差不多了(⊙﹏⊙)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="废宅的面试复习笔记（&lt;del&gt;估计并不能&lt;&#x2F;del&gt;持续更新）">
+<meta property="og:url" content="http://blog.4f5da2.com/2018/04/24/interview/index.html">
+<meta property="og:site_name" content="4F5DA2&#39;s BLOG">
+<meta property="og:description" content="最近面试，复习并总结了一波基础知识。(￣▽￣)” 首先，肥肠感谢lightina的博客，从中抄到了很多东西，省去了翻书整理的时间学到了很多东西，收获颇丰。 其实都学过，然而……忘的差不多了(⊙﹏⊙)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-30T07:29:38.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="废宅的面试复习笔记（&lt;del&gt;估计并不能&lt;&#x2F;del&gt;持续更新）">
+<meta name="twitter:description" content="最近面试，复习并总结了一波基础知识。(￣▽￣)” 首先，肥肠感谢lightina的博客，从中抄到了很多东西，省去了翻书整理的时间学到了很多东西，收获颇丰。 其实都学过，然而……忘的差不多了(⊙﹏⊙)">
+
+
+
+
+
+
+  <link rel="canonical" href="http://blog.4f5da2.com/2018/04/24/interview/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>废宅的面试复习笔记（<del>估计并不能</del>持续更新） | 4F5DA2's BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">4F5DA2's BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Quietly Brilliant</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.4f5da2.com/2018/04/24/interview/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="4F5DA2">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4F5DA2's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">废宅的面试复习笔记（<del>估计并不能</del>持续更新）
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-24 20:45:04" itemprop="dateCreated datePublished" datetime="2018-04-24T20:45:04+08:00">2018-04-24</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2018/04/24/interview/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/04/24/interview/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近面试，复习并总结了一波基础知识。(￣▽￣)”</p>
+<p>首先，肥肠感谢<a href="http://blog.lightina.cn/" target="_blank" rel="noopener">lightina的博客</a>，从中<del>抄到了很多东西，省去了翻书整理的时间</del>学到了很多东西，收获颇丰。</p>
+<p><del>其实都学过，然而……忘的差不多了(⊙﹏⊙)</del></p>
+<a id="more"></a>
+<h2 id="七层模型"><a href="#七层模型" class="headerlink" title="七层模型"></a>七层模型</h2><h3 id="七层结构"><a href="#七层结构" class="headerlink" title="七层结构"></a>七层结构</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">层次名字</th>
+<th style="text-align:center">数据格式(PDU)</th>
+<th style="text-align:center">设备</th>
+<th style="text-align:center">典型协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">应用层</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">表示层</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">MIME,SSL,TLS,XDR</td>
+</tr>
+<tr>
+<td style="text-align:center">会话层</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Sockets (session establishment in TCP / RTP / PPTP)</td>
+</tr>
+<tr>
+<td style="text-align:center">传输层</td>
+<td style="text-align:center">数据组成的数据段(Segment)</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">TCP,UDP</td>
+</tr>
+<tr>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">分割和重新组合的数据包(Packet)</td>
+<td style="text-align:center">网关，路由器</td>
+<td style="text-align:center">IP,ICMP,RIP,RIP,IGMP,OSPF</td>
+</tr>
+<tr>
+<td style="text-align:center">数据链路层(MAC,LLC)</td>
+<td style="text-align:center">比特信息封装成的数据帧(Frame)</td>
+<td style="text-align:center">网桥，交换机</td>
+<td style="text-align:center">ARP,RARP,PPP,CSMA/CD</td>
+</tr>
+<tr>
+<td style="text-align:center">物理层</td>
+<td style="text-align:center">传输比特流(bit)</td>
+<td style="text-align:center">光纤，同轴电缆，双绞线，网卡等</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="分层的优点"><a href="#分层的优点" class="headerlink" title="分层的优点"></a>分层的优点</h3><ul>
+<li>各层之间独立，不用知道下层的实现</li>
+<li>灵活性好，某一层发生变化不影响其他的层</li>
+<li>便于实现维护以及促进标准化</li>
+</ul>
+<h3 id="TCP-UDP"><a href="#TCP-UDP" class="headerlink" title="TCP/UDP"></a>TCP/UDP</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">特点</th>
+<th style="text-align:center">TCP</th>
+<th style="text-align:center">UDP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">是否面向连接</td>
+<td style="text-align:center">面向连接</td>
+<td style="text-align:center">面向非连接</td>
+</tr>
+<tr>
+<td style="text-align:center">可靠性</td>
+<td style="text-align:center">可靠</td>
+<td style="text-align:center">不可靠</td>
+</tr>
+<tr>
+<td style="text-align:center">相关协议</td>
+<td style="text-align:center">FTP,TELNET,SMTP,POP3,HTTP</td>
+<td style="text-align:center">DNS,SNMP(简单网络管理),TFTP</td>
+</tr>
+<tr>
+<td style="text-align:center">备注</td>
+<td style="text-align:center">流控制以及错误恢复功能</td>
+<td style="text-align:center">头包含很少的字节，比 TCP 负载消耗少</td>
+</tr>
+</tbody>
+</table>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p>HTTP版本：<code>0.9</code>,<code>1.0</code>,<code>1.1</code></p>
+<p>HTTP 1.1 的相关方法</p>
+<ul>
+<li>GET</li>
+<li>HEAD</li>
+<li>POST</li>
+<li>OPTIONS</li>
+<li>PUT</li>
+<li>DELETE</li>
+<li>TRACE</li>
+<li>CONN</li>
+<li>ETC</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/1a49a7b08ee0" title="HTTP详解" target="_blank" rel="noopener">HTTP详解</a></p>
+<p><a href="https://blog.csdn.net/u014175572/article/details/54861813" title="在这里写些奇怪的东西应该不会被发现把(‾◡◝)" target="_blank" rel="noopener">HTTP Header</a></p>
+<p>使用<a href="http://www.w3school.com.cn/media/media_mimeref.asp" title="MIME 参考手册" target="_blank" rel="noopener">MIME</a>协议决定传输内容</p>
+<h2 id="三次握手-amp-四次挥手"><a href="#三次握手-amp-四次挥手" class="headerlink" title="三次握手&amp;四次挥手"></a>三次握手&amp;四次挥手</h2><h3 id="第一次握手"><a href="#第一次握手" class="headerlink" title="第一次握手"></a>第一次握手</h3><p>客户端向服务端发送连接请求报文段。该报文段的头部中SYN=1，ACK=0，seq=x。请求发送后，客户端便进入SYN-SENT状态。SYN=1的报文段不能有数据部分，但要消耗掉一个序号。</p>
+<h3 id="第二次握手"><a href="#第二次握手" class="headerlink" title="第二次握手"></a>第二次握手</h3><p>服务端收到连接请求报文段后，如果同意连接，则会发送一个应答：SYN=1，ACK=1，seq=y，ack=x+1。<br>该应答发送完成后便进入SYN-RCVD状态。</p>
+<h3 id="第三次握手"><a href="#第三次握手" class="headerlink" title="第三次握手"></a>第三次握手</h3><p>当客户端收到连接同意的应答后，还要向服务端发送一个确认报文段，表示：服务端发来的连接同意应答已经成功收到。 该报文段的头部为：ACK=1，seq=x+1，ack=y+1。 客户端发完这个报文段后便进入ESTABLISHED状态，服务端收到这个应答后也进入ESTABLISHED状态，此时连接的建立完成！</p>
+<h3 id="为什么连接建立需要三次握手"><a href="#为什么连接建立需要三次握手" class="headerlink" title="为什么连接建立需要三次握手"></a>为什么连接建立需要三次握手</h3><p>防止失效的连接请求报文段被服务端接收，从而产生错误。</p>
+<p>此时如果网络拥塞，客户端发送的连接请求迟迟到不了服务端，客户端便超时重发请求，如果服务端正确接收并确认应答，双方便开始通信，通信结束后释放连接。此时，如果那个失效的连接请求抵达了服务端，由于只有两次握手，服务端收到请求就会进入ESTABLISHED状态，等待发送数据或主动发送数据。但此时的客户端早已进入CLOSED状态，服务端将会一直等待下去，这样浪费服务端连接资源。</p>
+<h3 id="第一次挥手"><a href="#第一次挥手" class="headerlink" title="第一次挥手"></a>第一次挥手</h3><p>若A认为数据发送完成，则它需要向B发送连接释放请求。该请求只有报文头，头中携带的主要参数为：<br>FIN=1，seq=u。此时，A将进入FIN-WAIT-1状态。</p>
+<h3 id="第二次挥手"><a href="#第二次挥手" class="headerlink" title="第二次挥手"></a>第二次挥手</h3><p>B收到连接释放请求后，会通知相应的应用程序，告诉它A向B这个方向的连接已经释放。此时B进入CLOSE-WAIT状态，并向A发送连接释放的应答，其报文头包含： ACK=1，seq=v，ack=u+1。</p>
+<p>A收到该应答，进入FIN-WAIT-2状态，等待B发送连接释放请求。<br>第二次挥手完成后，A到B方向的连接已经释放，B不会再接收数据，A也不会再发送数据。但B到A方向的连接仍然存在，B可以继续向A发送数据。</p>
+<h3 id="第三次挥手"><a href="#第三次挥手" class="headerlink" title="第三次挥手"></a>第三次挥手</h3><p>当B向A发完所有数据后，向A发送连接释放请求，请求头：FIN=1，ACK=1，seq=w，ack=u+1。B便进入LAST-ACK状态。</p>
+<h3 id="第四次挥手"><a href="#第四次挥手" class="headerlink" title="第四次挥手"></a>第四次挥手</h3><p>A收到释放请求后，向B发送确认应答，此时A进入TIME-WAIT状态。该状态会持续2MSL时间，若该时间段内没有B的重发请求的话，就进入CLOSED状态，撤销TCB。当B收到确认应答后，也便进入CLOSED状态，撤销TCB。</p>
+<h3 id="为什么等待2MSL"><a href="#为什么等待2MSL" class="headerlink" title="为什么等待2MSL"></a>为什么等待2MSL</h3><p>为了保证B能收到A的确认应答。 若A发完确认应答后直接进入CLOSED状态，那么如果该应答丢失，B等待超时后就会重新发送连接释放请求，但此时A已经关闭了，不会作出任何响应，因此B永远无法正常关闭</p>
+<h2 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h2><p>所有线程共享的：</p>
+<ul>
+<li>方法区<ul>
+<li>存储已经被加载的类，常量，静态变量，即时编译后的代码等</li>
+<li>虚拟机规范将方法区描述为堆的逻辑部分</li>
+<li>别名<code>Non-Heap</code></li>
+</ul>
+</li>
+<li>堆<ul>
+<li>可以简单的分为<code>新生代</code>和<code>年老代</code></li>
+<li>细致的可以分为<code>Eden</code>，<code>From Survivor</code>，<code>To Survivor</code>等空间</li>
+<li>内存中最大的一块</li>
+<li>虚拟机启动的时候创建</li>
+<li>所有Java对象都要在堆上进行分配（虚拟机规范中时这样的，然而并不绝对）</li>
+</ul>
+</li>
+</ul>
+<p>线程隔离的：</p>
+<ul>
+<li>虚拟机栈<ul>
+<li>每次执行方法都会创建一个栈帧</li>
+</ul>
+</li>
+<li>本地方法栈<ul>
+<li>为VM使用到的Native方法服务</li>
+<li>具体的VM可自由实现</li>
+<li>有的虚拟机(eg:Sun HotSpot 虚拟机)将本地方法栈以及虚拟机栈合二为一</li>
+</ul>
+</li>
+<li>程序计数器<ul>
+<li>执行Java方法时，记录的时正在执行的虚拟机的字节码的地址</li>
+<li>执行Native方法时，计数器的值为空(Undefined)</li>
+<li>唯一一个没有规定OutOfMemoryError情况的区域</li>
+</ul>
+</li>
+</ul>
+<h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><ul>
+<li>加载(Loading)：查找和导入Class文件</li>
+<li>连接：把类的而精致数据合并到JRE中<ul>
+<li>验证(Verification)：检查载入Class文件数据的正确性</li>
+<li>准备(Preparation)：给类的静态变量分配存储空间</li>
+<li>解析(Resolution)：将符号引用转成直接引用</li>
+</ul>
+</li>
+<li>初始化(initialization)：对类的静态变量，静态代码块执行初始化操作</li>
+<li>使用(Using)</li>
+<li>卸载(UnLoading)</li>
+</ul>
+<h3 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h3><p>一个ClassLoader查找资源时，先看看缓存是否有，有就从缓存中获取，否则委托给父加载器。然后递归，父加载器继续看缓存，直到Bootstrap ClassLoader，如果Bootstrap ClassLoader找到了，直接返回，如果没有找到，则一级一级返回，最后到达自身去查找这些对象</p>
+<h2 id="GC机制"><a href="#GC机制" class="headerlink" title="GC机制"></a>GC机制</h2><ul>
+<li>引用计数法<ul>
+<li>GC无法解决循环引用的问题</li>
+</ul>
+</li>
+<li>可达性分析<ul>
+<li>GC roots</li>
+<li>如果一个对象到GC Roots没有任何引用链相连时，则说明此对象不可用</li>
+</ul>
+</li>
+</ul>
+<h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><blockquote>
+<p>运行时，动态地将代码切入到类的指定方法、指定位置上的编程思想就是面向切面的编程。</p>
+</blockquote>
+<p>应用：</p>
+<ul>
+<li>读取缓存</li>
+<li>日志持久化</li>
+</ul>
+<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><p>解决可见性 多线程时 每个线程都有本地内存 保存着共享变量的副本<br>修改是对自己副本的修改且不会立刻刷新到主存去<br>禁止指令重拍序(单例模式双重检验后还需加volatile)</p>
+<ul>
+<li>对volatile变量的写会立即刷新到主存</li>
+<li>对volatile变量的读会读主存中的新值</li>
+</ul>
+<h2 id="竞争条件"><a href="#竞争条件" class="headerlink" title="竞争条件"></a>竞争条件</h2><ul>
+<li>计算机运行过程中，并发、无序、大量的进程在使用有限、独占、不可抢占的资源，由于进程无限，资源有限，产生矛盾，这种矛盾称为竞争</li>
+<li>由于两个或者多个进程竞争使用不能被同时访问的资源，使得这些进程有可能因为时间上推进的先后原因而出现问题，这叫做竞争条件</li>
+<li><p>竞争条件分为两类</p>
+<ul>
+<li>Mutex（互斥）：两个或多个进程彼此之间没有内在的制约关系，但是由于要抢占使用某个临界资源（不能被多个进程同时使用的资源，如打印机，变量）而产生制约关系</li>
+<li>Synchronization（同步）：两个或多个进程彼此之间存在内在的制约关系（前一个进程执行完，其他的进程才能执行），如严格轮转法</li>
+</ul>
+</li>
+<li><p>解决互斥方法</p>
+<ul>
+<li>Busy Waiting(忙等待)</li>
+<li>Sleep and Wakeup(睡眠与唤醒)</li>
+</ul>
+</li>
+</ul>
+<h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><blockquote>
+<p>如果一个进程的集合中的每个进程都在等待只能由该进程集合中的其他进程才能够引发的时间，那么，这个进程的集合就是死锁的。</p>
+</blockquote>
+<p>死锁条件</p>
+<ul>
+<li>互斥（已分配/可用）</li>
+<li>占有等待（持有资源后能够请求新的资源）</li>
+<li>不可抢占</li>
+<li>环路等待</li>
+</ul>
+<h2 id="杂七杂八"><a href="#杂七杂八" class="headerlink" title="杂七杂八"></a>杂七杂八</h2><p><a href="https://blog.csdn.net/jackfrued/article/details/44921941" target="_blank" rel="noopener">Java面试题合集（上）</a></p>
+<p><a href="https://blog.csdn.net/jackfrued/article/details/44931137" target="_blank" rel="noopener">Java面试题合集（中）</a></p>
+<p><a href="https://blog.csdn.net/jackfrued/article/details/44931161" target="_blank" rel="noopener">Java面试题合集（下）</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>4F5DA2</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.4f5da2.com/2018/04/24/interview/" title="废宅的面试复习笔记（<del>估计并不能</del>持续更新）">http://blog.4f5da2.com/2018/04/24/interview/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/14/null/" rel="next" title="null">
+                <i class="fa fa-chevron-left"></i> null
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/02/gradle/" rel="prev" title="Gradle学习笔记">
+                Gradle学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">4F5DA2</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/0x4f5da2" title="GitHub &rarr; https://github.com/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://steamcommunity.com/id/0x4f5da2" title="Steam &rarr; https://steamcommunity.com/id/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://great-li-xin.github.io" title="https://great-li-xin.github.io" rel="noopener" target="_blank">Great-Li-Xin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.lightina.cn" title="http://blog.lightina.cn" rel="noopener" target="_blank">jacklightChen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.handora.me" title="http://blog.handora.me" rel="noopener" target="_blank">Handora</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/27854b505130" title="https://www.jianshu.com/u/27854b505130" rel="noopener" target="_blank">413x</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/oneday_pyf" title="https://blog.csdn.net/oneday_pyf" rel="noopener" target="_blank">OneDay_pyf</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yisaer.github.io" title="https://yisaer.github.io" rel="noopener" target="_blank">Yisaer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/m_oman" title="https://blog.csdn.net/m_oman" rel="noopener" target="_blank">CoCoManYY</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/yr12Dong" title="https://me.csdn.net/yr12Dong" rel="noopener" target="_blank">12Dong</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#七层模型"><span class="nav-number">1.</span> <span class="nav-text">七层模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#七层结构"><span class="nav-number">1.1.</span> <span class="nav-text">七层结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分层的优点"><span class="nav-number">1.2.</span> <span class="nav-text">分层的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-UDP"><span class="nav-number">1.3.</span> <span class="nav-text">TCP/UDP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP"><span class="nav-number">1.4.</span> <span class="nav-text">HTTP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三次握手-amp-四次挥手"><span class="nav-number">2.</span> <span class="nav-text">三次握手&amp;四次挥手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一次握手"><span class="nav-number">2.1.</span> <span class="nav-text">第一次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二次握手"><span class="nav-number">2.2.</span> <span class="nav-text">第二次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三次握手"><span class="nav-number">2.3.</span> <span class="nav-text">第三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么连接建立需要三次握手"><span class="nav-number">2.4.</span> <span class="nav-text">为什么连接建立需要三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一次挥手"><span class="nav-number">2.5.</span> <span class="nav-text">第一次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二次挥手"><span class="nav-number">2.6.</span> <span class="nav-text">第二次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三次挥手"><span class="nav-number">2.7.</span> <span class="nav-text">第三次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四次挥手"><span class="nav-number">2.8.</span> <span class="nav-text">第四次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么等待2MSL"><span class="nav-number">2.9.</span> <span class="nav-text">为什么等待2MSL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM内存模型"><span class="nav-number">3.</span> <span class="nav-text">JVM内存模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载过程"><span class="nav-number">4.</span> <span class="nav-text">类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#双亲委派机制"><span class="nav-number">4.1.</span> <span class="nav-text">双亲委派机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GC机制"><span class="nav-number">5.</span> <span class="nav-text">GC机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP"><span class="nav-number">6.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile"><span class="nav-number">7.</span> <span class="nav-text">volatile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#竞争条件"><span class="nav-number">8.</span> <span class="nav-text">竞争条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#死锁"><span class="nav-number">9.</span> <span class="nav-text">死锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杂七杂八"><span class="nav-number">10.</span> <span class="nav-text">杂七杂八</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4F5DA2</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+  <script>
+    var _mtac = {};
+    (function() {
+      var mta = document.createElement("script");
+      mta.src = "https://pingjs.qq.com/h5/stats.js";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500654405");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+
+
+
+  <script>
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65819248";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'WniJVKEoQxAowKO3HKtNs4vX-gzGzoHsz',
+    appKey: 'Cl8lmwarMB7thoEPmBOONarz',
+    placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！~',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div id="particles-js" style="position: fixed; top: 0px; left: 0px; z-index: -1; width: 100%; height: 100%"></div>
+  <script src="/js/src/particles.js"></script>
+  <script>particlesJS.load('particles-js', '/js/src/particlesjs-config.json')</script>
+</body>
+</html>

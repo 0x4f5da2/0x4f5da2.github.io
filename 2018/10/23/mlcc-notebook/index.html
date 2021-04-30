@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="听说谷歌出了一个机器学习的课程 （早就出了，致远星战况如何），去学习了一下并且做了一些笔记（基本上是照着 抄 总结的）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习笔记">
+<meta property="og:url" content="http://blog.4f5da2.com/2018/10/23/mlcc-notebook/index.html">
+<meta property="og:site_name" content="4F5DA2&#39;s BLOG">
+<meta property="og:description" content="听说谷歌出了一个机器学习的课程 （早就出了，致远星战况如何），去学习了一下并且做了一些笔记（基本上是照着 抄 总结的）。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-30T07:29:38.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习笔记">
+<meta name="twitter:description" content="听说谷歌出了一个机器学习的课程 （早就出了，致远星战况如何），去学习了一下并且做了一些笔记（基本上是照着 抄 总结的）。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://blog.4f5da2.com/2018/10/23/mlcc-notebook/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>机器学习笔记 | 4F5DA2's BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">4F5DA2's BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Quietly Brilliant</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.4f5da2.com/2018/10/23/mlcc-notebook/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="4F5DA2">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4F5DA2's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-23 14:43:19" itemprop="dateCreated datePublished" datetime="2018-10-23T14:43:19+08:00">2018-10-23</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2018/10/23/mlcc-notebook/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/23/mlcc-notebook/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>听说谷歌出了一个机器学习的课程 <del>（早就出了，致远星战况如何）</del>，去学习了一下并且做了一些笔记（基本上是照着 <del>抄</del> 总结的）。</p>
+<a id="more"></a>
+<h2 id="谷歌机器学习速成课程笔记"><a href="#谷歌机器学习速成课程笔记" class="headerlink" title="谷歌机器学习速成课程笔记"></a>谷歌机器学习速成课程笔记</h2><ul>
+<li><code>回归</code>用于预测可连续的值，<code>分类</code>用于预测离散的值</li>
+</ul>
+<blockquote>
+<p>简单来说，训练模型表示通过有标签样本来学习（确定）所有权重和偏差的理想值。在监督式学习中，机器学习算法通过以下方式构建模型：检查多个样本并尝试找出可最大限度地减少损失的模型；这一过程称为<code>经验风险最小化</code>。</p>
+</blockquote>
+<ul>
+<li><p><code>平方损失</code>是一种常见的损失函数，（L2损失），单一样本的损失为欧几里得距离的平方</p>
+</li>
+<li><p><code>均方误差</code>是每个样本的平均平方损失。要计算 MSE，请求出各个样本的所有平方损失之和，然后除以样本数量</p>
+</li>
+<li><p>通常，可以不断迭代，直到总体损失不再变化或至少变化极其缓慢为止。这时候，我们可以说该模型已<code>收敛</code></p>
+</li>
+<li><p>梯度矢量具有方向和大小。<code>梯度下降</code>算法用梯度乘以一个称为学习速率（有时也称为步长）的标量，以确定下一个点的位置。</p>
+</li>
+<li><p><code>超参数</code>是编程人员在机器学习算法中用于调整的旋钮。大多数机器学习编程人员会花费相当多的时间来调整学习速率。如果选择的学习速率过小，就会花费太长的学习时间；如果指定的学习速率过大，下一个点将永远在 U 形曲线的底部随意弹跳</p>
+</li>
+</ul>
+<blockquote>
+<p><code>小批量随机梯度下降法（小批量 SGD）</code>是介于全批量迭代与 SGD 之间的折衷方案。小批量通常包含 10-1000 个随机选择的样本。小批量 SGD 可以减少 SGD 中的杂乱样本数量，但仍然比全批量更高效。</p>
+</blockquote>
+<ul>
+<li><p>通过截取<code>离群值</code>（将某些值明显和其他不正常的值限制在一个合理的范围之内【我是这么理解的😅）可以改进模型的拟合情况</p>
+</li>
+<li><p>总的训练的样本 = batch size（随机选择） * 训练迭代的总次数</p>
+</li>
+<li><p><code>泛化</code>是指对于全新的数据能够有较好的效果</p>
+</li>
+<li><p>通过<a href="https://developers.google.cn/machine-learning/crash-course/training-and-test-sets/playground-exercise" target="_blank" rel="noopener">配套的playground</a>可以推断出通过降低学习速率可以提高训练效果。多数情况下，增加批量大小不会显著影响训练损失或测试损失，有的时候，增加批量大小会是的训练效果更好。</p>
+</li>
+<li><p>将数据分为<code>训练数据-测试数据</code>可能会在不断地调整参数的过程中造成过拟合。一种较为优秀的时间是将数据分为<code>训练数据-验证数据-测试数据</code>。通过在验证数据对训练结果进行验证，而测试数据只在最后使用。</p>
+</li>
+<li><p>shuffle dataframe</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.utils <span class="keyword">import</span> shuffle</span><br><span class="line">df = shuffle(df)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在对数据进行预先处理的时候，需要注意遗漏值，重复样本，不良标签和不良特征值。并在可能的时候对其进行修正。</p>
+</li>
+<li><p>正则化指的是减小模型复杂度来减少过渡拟合</p>
+<ul>
+<li>提前停止</li>
+<li>添加模型复杂度惩罚（正则化）</li>
+</ul>
+</li>
+<li><p>逻辑回归会生成一个介于0到1之间的概率值，使用<code>对数损失函数</code></p>
+</li>
+<li><p>正确率可能会在正例和负例不均衡的情况下出现一些偏差，并不能很好的反映模型的情况</p>
+</li>
+<li><p>分类</p>
+<ul>
+<li>精确率 = TP / （TP + FP）；在被识别为正类别的样本中，确实为正类别的比例是多少？</li>
+<li>灵敏度，召回率 = TP / （TP + FN）；在所有正类别样本中，被正确识别为正类别的比例是多少？</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>曲线下面积因以下两个原因而比较实用：</p>
+<ul>
+<li>曲线下面积的尺度不变。它测量预测的排名情况，而不是测量其绝对值。</li>
+<li>曲线下面积的分类阈值不变。它测量模型预测的质量，而不考虑所选的分类阈值。</li>
+</ul>
+<p>不过，这两个原因都有各自的局限性，这可能会导致曲线下面积在某些用例中不太实用：</p>
+<ul>
+<li><code>并非总是希望尺度不变</code>。 例如，有时我们非常需要被良好校准的概率输出，而曲线下面积无法告诉我们这一结果。</li>
+<li><code>并非总是希望分类阈值不变</code>。 在假负例与假正例的代价存在较大差异的情况下，尽量减少一种类型的分类错误可能至关重要。例如，在进行垃圾邮件检测时，您可能希望优先考虑尽量减少假正例（即使这会导致假负例大幅增加）。对于此类优化，曲线下面积并非一个实用的指标。</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>预测偏差指的是预测平均值以及数据集中标签的平均值的差</p>
+</li>
+<li><p>造成预测偏差的可能原因包括</p>
+<ul>
+<li>特征集不完整</li>
+<li>数据集混乱</li>
+<li>模型实现流水线中有错误</li>
+<li>训练样本有偏差</li>
+<li>正则化过强</li>
+</ul>
+</li>
+<li><p>可以添加校准层调整模型输出，减小预测偏差（不推荐）</p>
+</li>
+<li><p>L1正则化</p>
+<ul>
+<li>降低权重而不是权重的平方</li>
+<li>从 L2 正则化转换到 L1 正则化之后，所有已知权重将有所减少</li>
+<li>增加 L1 正则化率一般会减小已知权重，正则化率过高的时候，模型将不能够收敛</li>
+<li>使得大多数信息缺乏的特征的权重正好为0</li>
+<li>可能会使得信息丰富的特征的其暗中正好为0</li>
+<li>可以用于减小模型的大小</li>
+</ul>
+</li>
+<li><p><a href="https://google-developers.gonglchuangl.net/machine-learning/crash-course/backprop-scroll/" target="_blank" rel="noopener">反向传播的直观演示</a></p>
+</li>
+<li><p>梯度相关</p>
+<blockquote>
+<p><code>梯度消失</code>：较低层（更接近输入）的梯度可能会变得非常小。在深度网络中，计算这些梯度时，可能涉及许多小项的乘积。当较低层的梯度逐渐消失到 0 时，这些层的训练速度会非常缓慢，甚至不再训练。ReLU 激活函数有助于防止梯度消失。</p>
+<p><code>梯度爆炸</code>：如果网络中的权重过大，则较低层的梯度会涉及许多大项的乘积。在这种情况下，梯度就会爆炸：梯度过大导致难以收敛。批标准化可以降低学习速率，因而有助于防止梯度爆炸。</p>
+<p><code>ReLU 单元消失</code>：一旦 ReLU 单元的加权和低于 0，ReLU 单元就可能会停滞。它会输出对网络输出没有任何贡献的 0 激活，而梯度在反向传播算法期间将无法再从中流过。由于梯度的来源被切断，ReLU 的输入可能无法作出足够的改变来使加权和恢复到 0 以上。降低学习速率有助于防止 ReLU 单元消失。</p>
+</blockquote>
+</li>
+<li><p><code>丢弃正则化（dropout regularization）</code>：在梯度下降的时候随机丢弃某些网络单元，丢弃的越多，正则话效果越强。</p>
+</li>
+<li><p>softmax将二元分类问题延伸到多个类别。在多类别分类问题中，小数表示的概率相加必须是1.0。如果一个样本时多个类比的成员，则不能够使用softmax，必须使用多个逻辑回归。</p>
+</li>
+</ul>
+<blockquote>
+<p>嵌套是一种相对低维的空间，您可以将高维矢量映射到这种低维空间里。通过使用嵌套，可以让在大型输入（比如代表字词的稀疏矢量）上进行机器学习变得更加容易。在理想情况下，嵌套可以将语义上相似的不同输入映射到嵌套空间里的邻近处，以此来捕获输入的语义。一个模型学习到的嵌套，也可以被其他模型重用。</p>
+</blockquote>
+<ul>
+<li>选取嵌套维度的经验值为词汇量（潜在的值的数量，比如50万部电影）的四次方根</li>
+</ul>
+<blockquote>
+<p>静态模型采用离线训练方式。也就是说，我们只训练模型一次，然后使用训练后的模型一段时间。动态模型采用在线训练方式。也就是说，数据会不断进入系统，我们通过不断地更新系统将这些数据整合到模型中。</p>
+</blockquote>
+<blockquote>
+<p>离线推理，指的是使用 MapReduce 或类似方法批量进行所有可能的预测。然后，将预测记录到 SSTable 或 Bigtable 中，并将它们提供给一个缓存/查询表。在线推理，指的是使用服务器根据需要进行预测。</p>
+</blockquote>
+<blockquote>
+<h3 id="反馈环"><a href="#反馈环" class="headerlink" title="反馈环"></a>反馈环</h3><p>有时，模型会影响其自身的训练数据。例如，来自某些模型的结果反过来是同一模型的直接或间接输入特征。有时，一个模型会影响另一个模型。</p>
+<p>由于模型 A 有误，因此会导致错误地决定购买股票 X 的股票，而购买这些股票会抬高股票 X 的价格。模型 B 将股票 X 的股价用作输入特征，因此它很容易对股票 X 的价值得出错误结论。然后，模型 B 会根据模型 A 的错误行为购买或销售股票 X 的股份，反过来，模型 B 的行为会影响模型 A，而这样很可能会触发郁金香狂热效应或导致 X 公司的股价下滑。</p>
+</blockquote>
+<ul>
+<li>标签泄露：训练标签泄露到特征中，使其带有欺骗性</li>
+</ul>
+<blockquote>
+<h3 id="有效的机器学习准则："><a href="#有效的机器学习准则：" class="headerlink" title="有效的机器学习准则："></a>有效的机器学习准则：</h3><ul>
+<li>确保第一个模型简单易用。</li>
+<li>着重确保数据管道的正确性。</li>
+<li>使用简单且可观察的指标进行训练和评估。</li>
+<li>拥有并监控您的输入特征。</li>
+<li>将您的模型配置视为代码：进行审核并记录在案。</li>
+<li>记下所有实验的结果，尤其是“失败”的结果。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="其他相关内容笔记"><a href="#其他相关内容笔记" class="headerlink" title="其他相关内容笔记"></a>其他相关内容笔记</h2><ul>
+<li><p>深度可分离卷积：对于每一个通道进行卷积最后通过1*1的卷积将通道混合。相当于是将空间特征学习以及通道特征学习分离开来。深度可分离卷积的超参数更少，可以得到更好以及更快的模型。（exception: Xception）</p>
+</li>
+<li><p>模型集成（model ensembling）：通过将不同模型的结果汇聚在一起，从而得到更好的预测效果。其中，这些模型需要具有多样性，其偏差需要尽可能在不同的方向上。一种较为成功的实践是结合深度学习以及浅层次的学习。</p>
+</li>
+<li><p>深度学习能够从感知数 据提取出人类能够提取出的几乎全部信息，但是只是针对感知而言</p>
+</li>
+<li><p>输入模式与网络架构的对应关系</p>
+<ul>
+<li><p>向量数据:密集连接网络(Dense 层)</p>
+</li>
+<li><p>图像数据:二维卷积神经网络</p>
+</li>
+<li><p>声音数据(比如波形):一维卷积神经网络(首选)或循环神经网络</p>
+</li>
+<li><p>文本数据:一维卷积神经网络(首选)或循环神经网络</p>
+</li>
+<li><p>时间序列数据:循环神经网络(首选)或一维卷积神经网络</p>
+</li>
+<li><p>其他类型的序列数据:循环神经网络或一维卷积神经网络。如果数据顺序非常重要(比如时间序列，但文本不是)，那么首选循环神经网络</p>
+</li>
+<li><p>视频数据:三维卷积神经网络(如果你需要捕捉运动效果)，或者帧级的二维神经网络(用于特征提取)+ 循环神经网络或一维卷积神经网络(用于处理得到的序列)。</p>
+</li>
+<li><p>立体数据:三维卷积神经网络</p>
+</li>
+</ul>
+</li>
+<li><p>深度学习模型只是将一个向量空间映射到另一个向量空间的简单而又连续的几何变换链。它能做的只是将一个数据流形X 映射到另一个流形Y</p>
+</li>
+<li></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>4F5DA2</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.4f5da2.com/2018/10/23/mlcc-notebook/" title="机器学习笔记">http://blog.4f5da2.com/2018/10/23/mlcc-notebook/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/15/ci-deploy/" rel="next" title="使用CI自动部署博客">
+                <i class="fa fa-chevron-left"></i> 使用CI自动部署博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/02/new-begining/" rel="prev" title="新的开始">
+                新的开始 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">4F5DA2</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/0x4f5da2" title="GitHub &rarr; https://github.com/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://steamcommunity.com/id/0x4f5da2" title="Steam &rarr; https://steamcommunity.com/id/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://great-li-xin.github.io" title="https://great-li-xin.github.io" rel="noopener" target="_blank">Great-Li-Xin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.lightina.cn" title="http://blog.lightina.cn" rel="noopener" target="_blank">jacklightChen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.handora.me" title="http://blog.handora.me" rel="noopener" target="_blank">Handora</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/27854b505130" title="https://www.jianshu.com/u/27854b505130" rel="noopener" target="_blank">413x</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/oneday_pyf" title="https://blog.csdn.net/oneday_pyf" rel="noopener" target="_blank">OneDay_pyf</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yisaer.github.io" title="https://yisaer.github.io" rel="noopener" target="_blank">Yisaer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/m_oman" title="https://blog.csdn.net/m_oman" rel="noopener" target="_blank">CoCoManYY</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/yr12Dong" title="https://me.csdn.net/yr12Dong" rel="noopener" target="_blank">12Dong</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌机器学习速成课程笔记"><span class="nav-number">1.</span> <span class="nav-text">谷歌机器学习速成课程笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反馈环"><span class="nav-number">1.1.</span> <span class="nav-text">反馈环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有效的机器学习准则："><span class="nav-number">1.2.</span> <span class="nav-text">有效的机器学习准则：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他相关内容笔记"><span class="nav-number">2.</span> <span class="nav-text">其他相关内容笔记</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4F5DA2</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+  <script>
+    var _mtac = {};
+    (function() {
+      var mta = document.createElement("script");
+      mta.src = "https://pingjs.qq.com/h5/stats.js";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500654405");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+
+
+
+  <script>
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65819248";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'WniJVKEoQxAowKO3HKtNs4vX-gzGzoHsz',
+    appKey: 'Cl8lmwarMB7thoEPmBOONarz',
+    placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！~',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div id="particles-js" style="position: fixed; top: 0px; left: 0px; z-index: -1; width: 100%; height: 100%"></div>
+  <script src="/js/src/particles.js"></script>
+  <script>particlesJS.load('particles-js', '/js/src/particlesjs-config.json')</script>
+</body>
+</html>

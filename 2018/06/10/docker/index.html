@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="在学习和使用Docker的过程中整理的一些概念和技巧。U1：1，Docker真好用(￣▽￣)”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker学习笔记">
+<meta property="og:url" content="http://blog.4f5da2.com/2018/06/10/docker/index.html">
+<meta property="og:site_name" content="4F5DA2&#39;s BLOG">
+<meta property="og:description" content="在学习和使用Docker的过程中整理的一些概念和技巧。U1：1，Docker真好用(￣▽￣)”">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-30T07:29:38.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker学习笔记">
+<meta name="twitter:description" content="在学习和使用Docker的过程中整理的一些概念和技巧。U1：1，Docker真好用(￣▽￣)”">
+
+
+
+
+
+
+  <link rel="canonical" href="http://blog.4f5da2.com/2018/06/10/docker/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Docker学习笔记 | 4F5DA2's BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">4F5DA2's BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Quietly Brilliant</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.4f5da2.com/2018/06/10/docker/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="4F5DA2">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4F5DA2's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Docker学习笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-10 23:12:19" itemprop="dateCreated datePublished" datetime="2018-06-10T23:12:19+08:00">2018-06-10</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2018/06/10/docker/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/06/10/docker/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在学习和使用Docker的过程中整理的一些概念和技巧。U1：1，Docker真好用(￣▽￣)”</p>
+<a id="more"></a>
+<style type="text/css">
+span.bb_spoiler {
+    color: #000000;
+    background-color: #000000;
+    padding: 0px 8px;
+}
+
+span.bb_spoiler:hover {
+    color: #ffffff;
+}
+
+span.bb_spoiler > span {
+    visibility: hidden;
+}
+
+span.bb_spoiler:hover > span {
+    visibility: visible;
+}
+</style>
+
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><ul>
+<li>容器是对应用程序及其依赖关系的封装</li>
+<li>轻量</li>
+<li>容器能与操作系统共享资源，因此其效率高出一个数量级</li>
+<li>容器的性能损耗非常低</li>
+<li>容器具有可移植性</li>
+<li>容器适用于微服务架构</li>
+<li>主机的内核与容器共享</li>
+<li>容器中的进程与主机自身等价</li>
+</ul>
+<p><span class="bb_spoiler"><span>有点累了先休息一会 (￣▽￣)”…..然后休息了好几个月，自从学了一些基础的命令之后觉得没有什么用就放在了一边 <del>借口</del>）😅然后后来实习的时候又感觉好有用就又捡回来了</span></span></p>
+<h2 id="一些常用的操作"><a href="#一些常用的操作" class="headerlink" title="一些常用的操作"></a>一些常用的操作</h2><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.docker.com &gt; install_docker.sh</span><br><span class="line">chmod 777 install_docker.sh</span><br><span class="line">./install_docker.sh</span><br></pre></td></tr></table></figure>
+<h3 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h3><p>简单的来说就是用来构建镜像的时候用的，下面是一个制作带有<code>kubectl</code>命令的简单的例子：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">16.04</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt update</span></span><br><span class="line"><span class="bash">RUN apt -y install python3</span></span><br><span class="line"><span class="bash">COPY ./kubectl /usr/<span class="built_in">local</span>/bin/kubectl</span></span><br><span class="line"><span class="bash">RUN chmod +x /usr/<span class="built_in">local</span>/bin/kubectl</span></span><br><span class="line"><span class="bash">COPY ./config /root/.kube/config</span></span><br></pre></td></tr></table></figure>
+<p>然后，使用如下的docker命令来构建镜像（Windwos）</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> IMAGE=&lt;image_name, tag and etc.&gt;</span><br><span class="line">docker build -t <span class="variable">%IMAGE%</span> .</span><br><span class="line">docker push <span class="variable">%IMAGE%</span></span><br></pre></td></tr></table></figure>
+<h3 id="在docker容器以及host之间传输文件"><a href="#在docker容器以及host之间传输文件" class="headerlink" title="在docker容器以及host之间传输文件"></a>在docker容器以及host之间传输文件</h3><ul>
+<li><p>使用<code>docker cp &lt;path&gt; &lt;containerName&gt;:&lt;path&gt;</code>从宿主机复制文件出来</p>
+</li>
+<li><p>使用<code>docker cp &lt;containerName&gt;:&lt;path&gt; &lt;path&gt;</code>从docker中复制文件出来</p>
+</li>
+</ul>
+<h3 id="docker-without-sudo"><a href="#docker-without-sudo" class="headerlink" title="docker without sudo"></a>docker without sudo</h3><p>在ubuntu直接安装docker之后会出现docker命令需要使用sudo才能够执行的情况，然后在stackoverflow上找了一个有效的解决方法</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo gpasswd -a <span class="variable">$USER</span> docker</span><br><span class="line"><span class="comment"># either</span></span><br><span class="line">newgrp docker</span><br><span class="line"><span class="comment"># or </span></span><br><span class="line">sudo reboot</span><br><span class="line"><span class="comment"># end</span></span><br></pre></td></tr></table></figure>
+<h3 id="挂载卷"><a href="#挂载卷" class="headerlink" title="挂载卷"></a>挂载卷</h3><p>还有两种方法进行卷挂在来着，但是因为现在主要炼丹，并用不到，还是下面的更加常用一些</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -v /host/dir:/container/dir debian</span><br></pre></td></tr></table></figure>
+<h3 id="将docker镜像保存成tar文件"><a href="#将docker镜像保存成tar文件" class="headerlink" title="将docker镜像保存成tar文件"></a>将docker镜像保存成tar文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o [文件名] [镜像名]</span><br></pre></td></tr></table></figure>
+<h3 id="加载保存成文件的docker镜像"><a href="#加载保存成文件的docker镜像" class="headerlink" title="加载保存成文件的docker镜像"></a>加载保存成文件的docker镜像</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i [文件名]</span><br></pre></td></tr></table></figure>
+<h3 id="将容器提交成为镜像"><a href="#将容器提交成为镜像" class="headerlink" title="将容器提交成为镜像"></a>将容器提交成为镜像</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m <span class="string">"commit message"</span> -a <span class="string">"author info"</span> &lt;container_id&gt; [&lt;repostory&gt;[/&lt;tag&gt;]]</span><br></pre></td></tr></table></figure>
+<h3 id="直接将容器到处至tar"><a href="#直接将容器到处至tar" class="headerlink" title="直接将容器到处至tar"></a>直接将容器到处至tar</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">export</span> [container name] &gt; [file name]  <span class="comment"># 使用docker import倒入</span></span><br></pre></td></tr></table></figure>
+<h3 id="暂停容器"><a href="#暂停容器" class="headerlink" title="暂停容器"></a>暂停容器</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pause &lt;container_id&gt;  <span class="comment"># 暂停容器中的所有进程</span></span><br><span class="line">docker unpause &lt;container_id&gt;  <span class="comment"># 重启</span></span><br></pre></td></tr></table></figure>
+<p>暂停容器内所有的进程，容器中的进程不会收到任何信号。在Linux底层使用cgroup freezer功能实现。</p>
+<h3 id="容器的attach以及detach"><a href="#容器的attach以及detach" class="headerlink" title="容器的attach以及detach"></a>容器的attach以及detach</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker attach &lt;container_id&gt;  <span class="comment"># attach到一个容器中</span></span><br><span class="line"><span class="comment"># attach到容器中后，使用CTRL-C会终止正在运行的进程</span></span><br><span class="line"><span class="comment"># 若要detach，需要使用CTRL-P CTRL-Q</span></span><br></pre></td></tr></table></figure>
+<h3 id="docker账户相关文件位置"><a href="#docker账户相关文件位置" class="headerlink" title="docker账户相关文件位置"></a>docker账户相关文件位置</h3><p>~/.docker/config.json</p>
+<h3 id="在docker中使用摄像头或者其他设备"><a href="#在docker中使用摄像头或者其他设备" class="headerlink" title="在docker中使用摄像头或者其他设备"></a>在docker中使用摄像头或者其他设备</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以摄像头为例子</span></span><br><span class="line">docker run -it --device /dev/video0 ubuntu:16.04 /bin/bash</span><br></pre></td></tr></table></figure>
+<p>之后就可以在docket容器中愉快地调用摄像头啦</p>
+<h3 id="端口相关"><a href="#端口相关" class="headerlink" title="端口相关"></a>端口相关</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -P -d radis  <span class="comment"># 在host开一个高端口映射到容器中</span></span><br><span class="line"></span><br><span class="line">docker port &lt;container_id&gt;  <span class="comment"># 查看已分配的端口</span></span><br></pre></td></tr></table></figure>
+<h3 id="在Docker容器中使用图形界面"><a href="#在Docker容器中使用图形界面" class="headerlink" title="在Docker容器中使用图形界面"></a>在Docker容器中使用图形界面</h3><p>虽然不是很懂，但是好像能用了(￣▽￣)”</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xhost +<span class="built_in">local</span>:docker</span><br><span class="line">XSOCK=/tmp/.X11-unix</span><br><span class="line">XAUTH=/tmp/.docker.xauth</span><br><span class="line">xauth nlist <span class="variable">$DISPLAY</span> | sed -e <span class="string">'s/^..../ffff/'</span> | xauth -f <span class="variable">$XAUTH</span> nmerge -</span><br><span class="line"></span><br><span class="line">docker run --runtime=nvidia -it -v ~/DockerVolume/CUDA:/workspace -e DISPLAY=<span class="variable">$DISPLAY</span> -v <span class="variable">$XSOCK</span>:<span class="variable">$XSOCK</span> -v <span class="variable">$XAUTH</span>:<span class="variable">$XAUTH</span> -e XAUTHORITY=<span class="variable">$XAUTH</span> nvidia/cuda:10.1-cudnn7-devel bash</span><br></pre></td></tr></table></figure>
+<p>随后可以使用如下命令测试效果</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install x11-apps</span><br><span class="line">xeyes</span><br></pre></td></tr></table></figure>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker top &lt;container_id&gt;  <span class="comment"># 类似ps，至显示容器内的进程，默认`-ef`</span></span><br><span class="line">docker tag &lt;container_id&gt; &lt;new_name&gt;</span><br><span class="line">docker <span class="built_in">log</span> [-t] [-f] &lt;container_id/container_name&gt;  <span class="comment"># -t timestamp, -f stream log</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -u $(id -u):$(id -g) -v ... args</span><br><span class="line"><span class="comment"># 映射用于以避免以root创建的文件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker system prune</span><br><span class="line"><span class="comment"># 删除无用的文件，包括已经停止但是可能有用的容器</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run ... -h HOST_NAME ...</span><br><span class="line"><span class="comment"># 使用HOST_NAME代替默认的容器ID</span></span><br></pre></td></tr></table></figure>
+<h2 id="一些需要注意的问题"><a href="#一些需要注意的问题" class="headerlink" title="一些需要注意的问题"></a>一些需要注意的问题</h2><ul>
+<li><p>在使用Dockerfile进行构建的时候，最好将Dockerfile以及相关文件放进一个目录中。这样做的原因是Docker在进行构建的时候会把Docker所在的目录打包成为一个tar文件，传递给Docker的守护进程。</p>
+</li>
+<li><p>基础镜像一般会包含安全补丁，因此应当定时更新</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>4F5DA2</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.4f5da2.com/2018/06/10/docker/" title="Docker学习笔记">http://blog.4f5da2.com/2018/06/10/docker/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/02/gradle/" rel="next" title="Gradle学习笔记">
+                <i class="fa fa-chevron-left"></i> Gradle学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/11/learning-mockito/" rel="prev" title="Mockito学习笔记">
+                Mockito学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">4F5DA2</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/0x4f5da2" title="GitHub &rarr; https://github.com/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://steamcommunity.com/id/0x4f5da2" title="Steam &rarr; https://steamcommunity.com/id/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://great-li-xin.github.io" title="https://great-li-xin.github.io" rel="noopener" target="_blank">Great-Li-Xin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.lightina.cn" title="http://blog.lightina.cn" rel="noopener" target="_blank">jacklightChen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.handora.me" title="http://blog.handora.me" rel="noopener" target="_blank">Handora</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/27854b505130" title="https://www.jianshu.com/u/27854b505130" rel="noopener" target="_blank">413x</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/oneday_pyf" title="https://blog.csdn.net/oneday_pyf" rel="noopener" target="_blank">OneDay_pyf</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yisaer.github.io" title="https://yisaer.github.io" rel="noopener" target="_blank">Yisaer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/m_oman" title="https://blog.csdn.net/m_oman" rel="noopener" target="_blank">CoCoManYY</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/yr12Dong" title="https://me.csdn.net/yr12Dong" rel="noopener" target="_blank">12Dong</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器"><span class="nav-number">1.</span> <span class="nav-text">容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些常用的操作"><span class="nav-number">2.</span> <span class="nav-text">一些常用的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装docker"><span class="nav-number">2.1.</span> <span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dockerfile"><span class="nav-number">2.2.</span> <span class="nav-text">dockerfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在docker容器以及host之间传输文件"><span class="nav-number">2.3.</span> <span class="nav-text">在docker容器以及host之间传输文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-without-sudo"><span class="nav-number">2.4.</span> <span class="nav-text">docker without sudo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挂载卷"><span class="nav-number">2.5.</span> <span class="nav-text">挂载卷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将docker镜像保存成tar文件"><span class="nav-number">2.6.</span> <span class="nav-text">将docker镜像保存成tar文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载保存成文件的docker镜像"><span class="nav-number">2.7.</span> <span class="nav-text">加载保存成文件的docker镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将容器提交成为镜像"><span class="nav-number">2.8.</span> <span class="nav-text">将容器提交成为镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接将容器到处至tar"><span class="nav-number">2.9.</span> <span class="nav-text">直接将容器到处至tar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暂停容器"><span class="nav-number">2.10.</span> <span class="nav-text">暂停容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器的attach以及detach"><span class="nav-number">2.11.</span> <span class="nav-text">容器的attach以及detach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker账户相关文件位置"><span class="nav-number">2.12.</span> <span class="nav-text">docker账户相关文件位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在docker中使用摄像头或者其他设备"><span class="nav-number">2.13.</span> <span class="nav-text">在docker中使用摄像头或者其他设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口相关"><span class="nav-number">2.14.</span> <span class="nav-text">端口相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Docker容器中使用图形界面"><span class="nav-number">2.15.</span> <span class="nav-text">在Docker容器中使用图形界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">2.16.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些需要注意的问题"><span class="nav-number">3.</span> <span class="nav-text">一些需要注意的问题</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4F5DA2</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+  <script>
+    var _mtac = {};
+    (function() {
+      var mta = document.createElement("script");
+      mta.src = "https://pingjs.qq.com/h5/stats.js";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500654405");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+
+
+
+  <script>
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65819248";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'WniJVKEoQxAowKO3HKtNs4vX-gzGzoHsz',
+    appKey: 'Cl8lmwarMB7thoEPmBOONarz',
+    placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！~',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div id="particles-js" style="position: fixed; top: 0px; left: 0px; z-index: -1; width: 100%; height: 100%"></div>
+  <script src="/js/src/particles.js"></script>
+  <script>particlesJS.load('particles-js', '/js/src/particlesjs-config.json')</script>
+</body>
+</html>

@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="又是自己总结的杂七杂八的东西 | Yet another naive wiki for myself 😀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TL;DR(2)">
+<meta property="og:url" content="http://blog.4f5da2.com/2019/08/28/tldr2/index.html">
+<meta property="og:site_name" content="4F5DA2&#39;s BLOG">
+<meta property="og:description" content="又是自己总结的杂七杂八的东西 | Yet another naive wiki for myself 😀">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-30T07:29:38.669Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TL;DR(2)">
+<meta name="twitter:description" content="又是自己总结的杂七杂八的东西 | Yet another naive wiki for myself 😀">
+
+
+
+
+
+
+  <link rel="canonical" href="http://blog.4f5da2.com/2019/08/28/tldr2/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>TL;DR(2) | 4F5DA2's BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">4F5DA2's BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Quietly Brilliant</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.4f5da2.com/2019/08/28/tldr2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="4F5DA2">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4F5DA2's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TL;DR(2)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-28 23:57:19" itemprop="dateCreated datePublished" datetime="2019-08-28T23:57:19+08:00">2019-08-28</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2019/08/28/tldr2/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/08/28/tldr2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>又是自己总结的杂七杂八的东西 | Yet another naive wiki for myself 😀</p>
+<a id="more"></a>
+<h2 id="Anaconda相关"><a href="#Anaconda相关" class="headerlink" title="Anaconda相关"></a>Anaconda相关</h2><ul>
+<li><p>安装miniconda：<a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">https://docs.conda.io/en/latest/miniconda.html</a></p>
+</li>
+<li><p>文档：<a href="https://docs.conda.io" target="_blank" rel="noopener">https://docs.conda.io</a></p>
+</li>
+<li><p>conda常用操作（参考<code>tldr conda</code>以及<a href="https://docs.conda.io/projects/conda/en/latest/_downloads/1f5ecf5a87b1c1a8aaf5a7ab8a7a0ff7/conda-cheatsheet.pdf" target="_blank" rel="noopener">conda cheat sheet</a>）</p>
+</li>
+<li><p>conda管理环境相关内容：<a href="https://conda.io/docs/user-guide/tasks/manage-environments.html" target="_blank" rel="noopener">https://conda.io/docs/user-guide/tasks/manage-environments.html</a></p>
+  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示conda相关信息</span></span><br><span class="line">conda info</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建新的环境并安装指定软件包</span></span><br><span class="line">conda create --name ENV_NAME python=2.7 PKG</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示所有的环境</span></span><br><span class="line">conda info --envs</span><br><span class="line">conda env list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 激活/注销某个环境</span></span><br><span class="line">conda activate  ENV_NAME</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除一个环境以及所有的相关包</span></span><br><span class="line">conda remove --name ENV_NAME --all</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检索软件包</span></span><br><span class="line">conda search PKGNAME=3.1 <span class="string">"PKGNAME[version='&gt;=3.1.0,&lt;3.2'"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在现有的环境中安装软件包</span></span><br><span class="line">conda install PKGNAME==3.1.4 <span class="string">"PKGNAME[version='3.1.2|3.1.4']"</span> <span class="string">"PKGNAME&gt;2.5,&lt;3.2"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示安装的软件包</span></span><br><span class="line">conda list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除缓存</span></span><br><span class="line">conda clean --all</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加channels</span></span><br><span class="line">conda config --add channels CHANNELNAME</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制环境</span></span><br><span class="line">conda create --<span class="built_in">clone</span> ENV_NAME --name NEW_NAME</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导出/导入环境</span></span><br><span class="line">conda env <span class="built_in">export</span> --name ENV_ANME &gt; env.yaml</span><br><span class="line">conda env create [--file env.yaml]</span><br><span class="line">conda list --explicit &gt; pkgs.txt</span><br><span class="line">conda create --name NEW_ENV --file pkgs.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更换conda软件源</p>
+<p><code>.condarc</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="nginx-设置重定向"><a href="#nginx-设置重定向" class="headerlink" title="nginx 设置重定向"></a>nginx 设置重定向</h2><p>使用<code>sudo nginx -s reload</code>重新载入后，出现如下错误，<code>unknown directive &quot;if($host&quot; in ...</code></p>
+<p>原因在于nginx对于语法的检测比较严格，<code>if</code>以及<code>(</code>和变量符号周围都需要有空格</p>
+<h2 id="使用dpkg安装deb软件包"><a href="#使用dpkg安装deb软件包" class="headerlink" title="使用dpkg安装deb软件包"></a>使用dpkg安装deb软件包</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i PACKAGE_NAME.deb</span><br></pre></td></tr></table></figure>
+<h2 id="Python-Exit-Hanlders"><a href="#Python-Exit-Hanlders" class="headerlink" title="Python Exit Hanlders"></a>Python Exit Hanlders</h2><p>在程序退出的时候执行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cleanup</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Terminating BlobFetcher'</span></span><br><span class="line">    self._prefetch_process.terminate()</span><br><span class="line">    self._prefetch_process.join()</span><br><span class="line"><span class="keyword">import</span> atexit</span><br><span class="line">atexit.register(cleanup)</span><br></pre></td></tr></table></figure>
+<h2 id="Python3-past-builtins模块导入错误"><a href="#Python3-past-builtins模块导入错误" class="headerlink" title="Python3 past.builtins模块导入错误"></a>Python3 past.builtins模块导入错误</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install future</span><br><span class="line">conda install future</span><br></pre></td></tr></table></figure>
+<h2 id="IPython自动重新载入"><a href="#IPython自动重新载入" class="headerlink" title="IPython自动重新载入"></a>IPython自动重新载入</h2><p>执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%load_ext autoreload</span><br><span class="line">%autoreload 2</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import autoreload</span><br><span class="line">?autoreload</span><br></pre></td></tr></table></figure></p>
+<h2 id="KMS-Key"><a href="#KMS-Key" class="headerlink" title="KMS Key"></a>KMS Key</h2><p>来自互联网，需要配合<a href="https://github.com/Wind4/vlmcsd" target="_blank" rel="noopener">KMS服务器</a>使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Office Professional Plus 2019：NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP</span><br><span class="line">Office Standard 2019：6NWWJ-YQWMR-QKGCB-6TMB3-9D9HK</span><br><span class="line">Project Professional 2019：B4NPR-3FKK7-T2MBV-FRQ4W-PKD2B</span><br><span class="line">Project Standard 2019：C4F7P-NCP8C-6CQPT-MQHV9-JXD2M</span><br><span class="line">Visio Professional 2019：9BGNQ-K37YR-RQHF2-38RQ3-7VCBB</span><br><span class="line">Visio Standard 2019：7TQNQ-K3YQQ-3PFH7-CCPPM-X4VQ2</span><br><span class="line">Access 2019：9N9PT-27V4Y-VJ2PD-YXFMF-YTFQT</span><br><span class="line">Excel 2019：TMJWT-YYNMB-3BKTF-644 FC-RVXBD</span><br><span class="line">Outlook 2019：7HD7K-N4PVK-BHBCQ-YWQRW-XW4VK</span><br><span class="line">PowerPoint 2019：RRNCX-C64HY-W2MM7-MCH9G-TJHMQ</span><br><span class="line">Publisher 2019：G2KWX-3NW6P-PY93R-JXK2T-C9Y9V</span><br><span class="line">Skype for Business 2019：NCJ33-JHBBY-HTK98-MYCV8-HMKHJ</span><br><span class="line">Word 2019：PBX3G-NWMT6-Q7XBW-PYJGG-WXD33</span><br><span class="line"></span><br><span class="line">Windows Server 2016 Datacenter: CB7KF-BWN84-R7R2Y-793K2-8XDDG</span><br><span class="line">Windows Server 2016 Standard: WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY</span><br><span class="line">Windows Server 2016 Essentials: JCKRF-N37P4-C2D82-9YXRT-4M63B</span><br><span class="line"></span><br><span class="line">Windows 10 Professional: W269N-WFGWX-YVC9B-4J6C9-T83GX</span><br><span class="line">Windows 10 Enterprise: NPPR9-FWDCX-D2C8J-H872K-2YT43</span><br><span class="line">Windows 10 Education: NW6C2-QMPVW-D7KKK-3GKT6-VCFB2</span><br></pre></td></tr></table></figure></p>
+<h2 id="常用KMS指令"><a href="#常用KMS指令" class="headerlink" title="常用KMS指令"></a>常用KMS指令</h2><p>Windows</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">slmgr /skms &lt;host&gt;</span><br><span class="line">slmgr /ipk &lt;keys&gt;</span><br><span class="line">slmgr /ato</span><br></pre></td></tr></table></figure>
+<p>Office</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># open Office directory</span></span><br><span class="line">cscript ospp.vbs /sethst:&lt;host&gt;</span><br><span class="line">cscript ospp.vbs /inpkey:&lt;key&gt;</span><br><span class="line">cscript ospp.vbs /act</span><br></pre></td></tr></table></figure>
+<p>相关参考：</p>
+<ul>
+<li><p><a href="https://docs.microsoft.com/en-us/deployoffice/vlactivation/tools-to-manage-volume-activation-of-office" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/deployoffice/vlactivation/tools-to-manage-volume-activation-of-office</a></p>
+</li>
+<li><p><a href="https://docs.microsoft.com/en-us/windows-server/get-started/activation-slmgr-vbs-options" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/windows-server/get-started/activation-slmgr-vbs-options</a></p>
+</li>
+</ul>
+<h2 id="在Lubuntu中使用xrdp"><a href="#在Lubuntu中使用xrdp" class="headerlink" title="在Lubuntu中使用xrdp"></a>在Lubuntu中使用xrdp</h2><ul>
+<li><code>sudo apt-get install xrdp</code></li>
+<li>修改 <code>/etc/xrdp/startwm.sh</code>最后一行为 <code>. /etc/X11/Xsession</code></li>
+<li>创建或者修改<code>~/.xsession</code>的内容为<code>lxsession -e LXDE -s Lubuntu</code></li>
+</ul>
+<h2 id="设置终端使用科学上网"><a href="#设置终端使用科学上网" class="headerlink" title="设置终端使用科学上网"></a>设置终端使用科学上网</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> all_proxy=socks5://127.0.0.1:1086</span><br></pre></td></tr></table></figure>
+<h2 id="使用终端将文件移入回收站"><a href="#使用终端将文件移入回收站" class="headerlink" title="使用终端将文件移入回收站"></a>使用终端将文件移入回收站</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install trash</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">sudo apt install trash</span><br><span class="line"></span><br><span class="line">trash &lt;file&gt; &lt;...&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="做研究与写论文"><a href="#做研究与写论文" class="headerlink" title="做研究与写论文"></a>做研究与写论文</h2><p><a href="./how_to_do_research.pdf">做研究与写论文-周志华</a></p>
+<p>* 来源于互联网，相关权利归属原作者</p>
+<h2 id="科技写作中的时态"><a href="#科技写作中的时态" class="headerlink" title="科技写作中的时态"></a>科技写作中的时态</h2><p><a href="./tenses_in_sci_writing.pdf">Tense considerations for science writing</a></p>
+<p>* 来源于互联网，相关权利归属原作者</p>
+<h2 id="解决Linux-amp-Windows双系统时间不同步"><a href="#解决Linux-amp-Windows双系统时间不同步" class="headerlink" title="解决Linux&amp;Windows双系统时间不同步"></a>解决Linux&amp;Windows双系统时间不同步</h2><p>在Linux下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo timedatectl <span class="built_in">set</span>-local-rtc 1</span><br></pre></td></tr></table></figure>
+<p>或者，在Windows下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
+<h2 id="htop中的不同颜色"><a href="#htop中的不同颜色" class="headerlink" title="htop中的不同颜色"></a>htop中的不同颜色</h2><p>CPU：</p>
+<ul>
+<li>蓝色：低优先级线程</li>
+<li>绿色：正常优先级线程</li>
+<li>红色：内核线程</li>
+<li>青绿色：虚拟化线程</li>
+</ul>
+<p>RAM：</p>
+<ul>
+<li>绿色：已经使用的内存</li>
+<li>蓝色：缓冲（buffer）</li>
+<li>黄色/橙色：缓存（cache）</li>
+</ul>
+<h2 id="Latex入门"><a href="#Latex入门" class="headerlink" title="Latex入门"></a>Latex入门</h2><p>一份不太简短的 LATEX2ε 介绍：<a href="http://www.ptep-online.com/ctan/lshort_chinese.pdf" target="_blank" rel="noopener">http://www.ptep-online.com/ctan/lshort_chinese.pdf</a> <a href="lshort_chinese.pdf">[pdf]</a></p>
+<h2 id="在macOS终端中添加code命令"><a href="#在macOS终端中添加code命令" class="headerlink" title="在macOS终端中添加code命令"></a>在macOS终端中添加code命令</h2><p>在VSCode中按下<code>Command</code>+<code>Shift</code>+<code>P</code>，搜索并选中<code>Shell Command : Install code in PATH</code>。</p>
+<h2 id="macOS下文字输入的相关快捷键"><a href="#macOS下文字输入的相关快捷键" class="headerlink" title="macOS下文字输入的相关快捷键"></a>macOS下文字输入的相关快捷键</h2><ul>
+<li>Command + 左箭头：前往一行的开头，相当于Home</li>
+<li>Command + 右箭头：前往一行的结尾，相当于End</li>
+<li>Command + 上箭头：前往正在编辑的内容的第一行</li>
+<li>Command + 下箭头：前往正在编辑的内容的最后一样</li>
+<li>Command + Delete：删除一行</li>
+<li>Option + 左箭头：向前移动一个单词</li>
+<li>Option + 右箭头：向后移动一个单词</li>
+<li>Option + Delete：向前删除一个单词</li>
+<li>Option + Fn + Delete：向后删除一个单词</li>
+</ul>
+<p>更多快捷键：<a href="https://support.apple.com/zh-cn/HT201236" target="_blank" rel="noopener">https://support.apple.com/zh-cn/HT201236</a></p>
+<h2 id="中国计算机学会推荐国际学术会议和期刊目录"><a href="#中国计算机学会推荐国际学术会议和期刊目录" class="headerlink" title="中国计算机学会推荐国际学术会议和期刊目录"></a>中国计算机学会推荐国际学术会议和期刊目录</h2><p><a href="./recommended.pdf">推荐期刊会议</a></p>
+<h2 id="在macOS上使用不受官方支持的打印机"><a href="#在macOS上使用不受官方支持的打印机" class="headerlink" title="在macOS上使用不受官方支持的打印机"></a>在macOS上使用不受官方支持的打印机</h2><p>实验室的上古打印机官方的驱动没法在新系统上用，稍微研究了一下，搞了个开源的驱动</p>
+<ul>
+<li>安装GutenPrint：<code>brew cask install homebrew/cask-drivers/gutenprint</code></li>
+<li>在系统设置中添加打印机，如果正常的话应该能直接找到并添加</li>
+<li>由于实验室的打印机彩色墨盒有问题，需要设置默认灰度打印<ul>
+<li><code>cupsctl WebInterface=yes</code></li>
+<li>在浏览器中输入localhost:631，找到对应的打印机进行设置</li>
+<li><code>cupsctl WebInterface=no</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="ssh长时间不操作断连解决方案"><a href="#ssh长时间不操作断连解决方案" class="headerlink" title="ssh长时间不操作断连解决方案"></a>ssh长时间不操作断连解决方案</h2><p>在<code>/etc/ssh/ssh_config</code>中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ServerAliveInterval 15</span><br><span class="line">ServerAliveCountMax 20</span><br></pre></td></tr></table></figure></p>
+<h2 id="在Ubuntu中使用VNC"><a href="#在Ubuntu中使用VNC" class="headerlink" title="在Ubuntu中使用VNC"></a>在Ubuntu中使用VNC</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install VNC server for GNOME</span></span><br><span class="line">sudo apt install vino</span><br><span class="line"></span><br><span class="line"><span class="comment"># disable encryption for better compatibility</span></span><br><span class="line">gsetting <span class="built_in">set</span> org.gnome.Vino require-encryption <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h2 id="从Ubuntu软件源下载deb包"><a href="#从Ubuntu软件源下载deb包" class="headerlink" title="从Ubuntu软件源下载deb包"></a>从Ubuntu软件源下载deb包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/pool/main/</span><br></pre></td></tr></table></figure>
+<h2 id="PyCharm中的import红色下划线"><a href="#PyCharm中的import红色下划线" class="headerlink" title="PyCharm中的import红色下划线"></a>PyCharm中的import红色下划线</h2><p>PyCharm中的import有红色下划线，但是能运行。解决方法是在代码目录上右键，然后<code>Mark Directory as</code>-&gt;<code>Source Root</code></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>4F5DA2</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.4f5da2.com/2019/08/28/tldr2/" title="TL;DR(2)">http://blog.4f5da2.com/2019/08/28/tldr2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/19/pyqt/" rel="next" title="PyQt笔记">
+                <i class="fa fa-chevron-left"></i> PyQt笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/26/tldr-dl/" rel="prev" title="TL;DR for DL">
+                TL;DR for DL <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">4F5DA2</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/0x4f5da2" title="GitHub &rarr; https://github.com/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://steamcommunity.com/id/0x4f5da2" title="Steam &rarr; https://steamcommunity.com/id/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://great-li-xin.github.io" title="https://great-li-xin.github.io" rel="noopener" target="_blank">Great-Li-Xin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.lightina.cn" title="http://blog.lightina.cn" rel="noopener" target="_blank">jacklightChen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.handora.me" title="http://blog.handora.me" rel="noopener" target="_blank">Handora</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/27854b505130" title="https://www.jianshu.com/u/27854b505130" rel="noopener" target="_blank">413x</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/oneday_pyf" title="https://blog.csdn.net/oneday_pyf" rel="noopener" target="_blank">OneDay_pyf</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yisaer.github.io" title="https://yisaer.github.io" rel="noopener" target="_blank">Yisaer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/m_oman" title="https://blog.csdn.net/m_oman" rel="noopener" target="_blank">CoCoManYY</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/yr12Dong" title="https://me.csdn.net/yr12Dong" rel="noopener" target="_blank">12Dong</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda相关"><span class="nav-number">1.</span> <span class="nav-text">Anaconda相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-设置重定向"><span class="nav-number">2.</span> <span class="nav-text">nginx 设置重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用dpkg安装deb软件包"><span class="nav-number">3.</span> <span class="nav-text">使用dpkg安装deb软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-Exit-Hanlders"><span class="nav-number">4.</span> <span class="nav-text">Python Exit Hanlders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python3-past-builtins模块导入错误"><span class="nav-number">5.</span> <span class="nav-text">Python3 past.builtins模块导入错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPython自动重新载入"><span class="nav-number">6.</span> <span class="nav-text">IPython自动重新载入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KMS-Key"><span class="nav-number">7.</span> <span class="nav-text">KMS Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用KMS指令"><span class="nav-number">8.</span> <span class="nav-text">常用KMS指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Lubuntu中使用xrdp"><span class="nav-number">9.</span> <span class="nav-text">在Lubuntu中使用xrdp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置终端使用科学上网"><span class="nav-number">10.</span> <span class="nav-text">设置终端使用科学上网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用终端将文件移入回收站"><span class="nav-number">11.</span> <span class="nav-text">使用终端将文件移入回收站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#做研究与写论文"><span class="nav-number">12.</span> <span class="nav-text">做研究与写论文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#科技写作中的时态"><span class="nav-number">13.</span> <span class="nav-text">科技写作中的时态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决Linux-amp-Windows双系统时间不同步"><span class="nav-number">14.</span> <span class="nav-text">解决Linux&amp;Windows双系统时间不同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#htop中的不同颜色"><span class="nav-number">15.</span> <span class="nav-text">htop中的不同颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Latex入门"><span class="nav-number">16.</span> <span class="nav-text">Latex入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在macOS终端中添加code命令"><span class="nav-number">17.</span> <span class="nav-text">在macOS终端中添加code命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#macOS下文字输入的相关快捷键"><span class="nav-number">18.</span> <span class="nav-text">macOS下文字输入的相关快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中国计算机学会推荐国际学术会议和期刊目录"><span class="nav-number">19.</span> <span class="nav-text">中国计算机学会推荐国际学术会议和期刊目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在macOS上使用不受官方支持的打印机"><span class="nav-number">20.</span> <span class="nav-text">在macOS上使用不受官方支持的打印机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh长时间不操作断连解决方案"><span class="nav-number">21.</span> <span class="nav-text">ssh长时间不操作断连解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Ubuntu中使用VNC"><span class="nav-number">22.</span> <span class="nav-text">在Ubuntu中使用VNC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从Ubuntu软件源下载deb包"><span class="nav-number">23.</span> <span class="nav-text">从Ubuntu软件源下载deb包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PyCharm中的import红色下划线"><span class="nav-number">24.</span> <span class="nav-text">PyCharm中的import红色下划线</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4F5DA2</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+  <script>
+    var _mtac = {};
+    (function() {
+      var mta = document.createElement("script");
+      mta.src = "https://pingjs.qq.com/h5/stats.js";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500654405");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+
+
+
+  <script>
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65819248";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'WniJVKEoQxAowKO3HKtNs4vX-gzGzoHsz',
+    appKey: 'Cl8lmwarMB7thoEPmBOONarz',
+    placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！~',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div id="particles-js" style="position: fixed; top: 0px; left: 0px; z-index: -1; width: 100%; height: 100%"></div>
+  <script src="/js/src/particles.js"></script>
+  <script>particlesJS.load('particles-js', '/js/src/particlesjs-config.json')</script>
+</body>
+</html>

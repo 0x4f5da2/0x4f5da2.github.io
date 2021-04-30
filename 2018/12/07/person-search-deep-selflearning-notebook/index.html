@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="整理的行人搜索（Person Search）的一些文献和相关资料 | Awesome Person Search A naive list of Person Search related material.😅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Person Search深度自学笔记">
+<meta property="og:url" content="http://blog.4f5da2.com/2018/12/07/person-search-deep-selflearning-notebook/index.html">
+<meta property="og:site_name" content="4F5DA2&#39;s BLOG">
+<meta property="og:description" content="整理的行人搜索（Person Search）的一些文献和相关资料 | Awesome Person Search A naive list of Person Search related material.😅">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-30T07:29:38.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Person Search深度自学笔记">
+<meta name="twitter:description" content="整理的行人搜索（Person Search）的一些文献和相关资料 | Awesome Person Search A naive list of Person Search related material.😅">
+
+
+
+
+
+
+  <link rel="canonical" href="http://blog.4f5da2.com/2018/12/07/person-search-deep-selflearning-notebook/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Person Search深度自学笔记 | 4F5DA2's BLOG</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">4F5DA2's BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Quietly Brilliant</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.4f5da2.com/2018/12/07/person-search-deep-selflearning-notebook/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="4F5DA2">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4F5DA2's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Person Search深度自学笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-07 13:55:18" itemprop="dateCreated datePublished" datetime="2018-12-07T13:55:18+08:00">2018-12-07</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2018/12/07/person-search-deep-selflearning-notebook/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/07/person-search-deep-selflearning-notebook/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>整理的行人搜索（Person Search）的一些文献和相关资料 | <del>Awesome Person Search</del> A naive list of Person Search related material.😅</p>
+<a id="more"></a>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>行人搜索的工作主要是将行人检测（detection）以及行人重识别（Re-ID）整合在一起的工作。相比被广泛研究的单纯的行人重识别要更加贴近于现实的应用。</p>
+<h2 id="Paper-List-of-Person-Search"><a href="#Paper-List-of-Person-Search" class="headerlink" title="Paper List of Person Search"></a>Paper List of Person Search</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Paper</th>
+<th style="text-align:center">Source</th>
+<th style="text-align:center">Related Material</th>
+<th style="text-align:center">Rating</th>
+<th style="text-align:center">CUHK(mAP/Top-1)</th>
+<th style="text-align:center">PRW(mAP/Top-1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A Discriminatively Learned Feature Embedding Based on Multi-Loss Fusion For Person Search</td>
+<td style="text-align:center">ICASSP 2018</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">79.78/79.90</td>
+<td style="text-align:center">21.00/63.10</td>
+</tr>
+<tr>
+<td style="text-align:center">Correlation Based Identity Filter: An Efficient Framework for Person Search</td>
+<td style="text-align:center">ICIG 2017</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">43.35/50.48</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Joint Detection and Identification Feature Learning for Person Search</td>
+<td style="text-align:center">CVPR2 017</td>
+<td style="text-align:center"><a href="https://github.com/ShuangLI59/person_search" target="_blank" rel="noopener">Code</a></td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">75.5/77.9</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Enhanced Deep Feature Representation for Person Search</td>
+<td style="text-align:center">CCCV 2017</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">77.8/80.6</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">IAN: The Individual Aggregation Network for Person Search</td>
+<td style="text-align:center">PR 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">77.23/80.45</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Instance Enhancing Loss: Deep Identity-Sensitive Feature Embedding For Person Search</td>
+<td style="text-align:center">ICIP 2018</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">79.43/79.66</td>
+<td style="text-align:center">24.26/69.47</td>
+</tr>
+<tr>
+<td style="text-align:center">Neural Person Search Machines</td>
+<td style="text-align:center">ICCV 2017</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">77.9/81.2</td>
+<td style="text-align:center">24.2/53.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Re-identification in the Wild</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:center"><a href="https://github.com/liangzheng06/PRW-baseline" target="_blank" rel="noopener">Baseline</a></td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">20.5/48.3</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search by Multi-Scale Matching</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">87.2/88.5</td>
+<td style="text-align:center">38.7/65.0</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search via A Mask-Guided Two-Stream CNN Model</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">83.0/83.7</td>
+<td style="text-align:center">32.6/72.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search in a Scene by Jointly Modeling People Commonness and Person Uniqueness</td>
+<td style="text-align:center">ACM MM 2014</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">RCAA: Relational context-aware agents for person search</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">79.3/81.3</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">End-to-End Detection and Re-identification Integrated Net for Person Search</td>
+<td style="text-align:center">ACCV 2018</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">79.5/81.5</td>
+<td style="text-align:center">25.6/48.7</td>
+</tr>
+<tr>
+<td style="text-align:center">Learning Context Graph for Person Search</td>
+<td style="text-align:center">CVPR 2019</td>
+<td style="text-align:center"><a href="https://github.com/sjtuzq/person_search_gcn" target="_blank" rel="noopener">Code</a></td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">84.1/86.5</td>
+<td style="text-align:center">33.4/73.6</td>
+</tr>
+<tr>
+<td style="text-align:center">Query-guided End-to-End Person Search</td>
+<td style="text-align:center">CVPR 2019</td>
+<td style="text-align:center"><a href="https://github.com/munjalbharti/Query-guided-End-to-End-Person-Search" target="_blank" rel="noopener">Home</a></td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">88.9/89.1</td>
+<td style="text-align:center">39.1/80.0</td>
+</tr>
+<tr>
+<td style="text-align:center">Partially Separated Networks for Person Search</td>
+<td style="text-align:center">PCM 2018</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">86.8/89.1</td>
+<td style="text-align:center">30.0/53.3</td>
+</tr>
+<tr>
+<td style="text-align:center">A cascaded multitask network with deformable spatial transform on person search</td>
+<td style="text-align:center">IJARSys 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">84.1/84.5</td>
+<td style="text-align:center">34.3/68.4</td>
+</tr>
+<tr>
+<td style="text-align:center">Multilevel Collaborative Attention Network for Person Search</td>
+<td style="text-align:center">ACCV 2018</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">76.3/79.2</td>
+<td style="text-align:center">29.1/60.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Enhancing Person Retrieval with Joint Person Detection, Attribute Learning, and Identification</td>
+<td style="text-align:center">PCM 2018</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">24.8/65.5</td>
+</tr>
+<tr>
+<td style="text-align:center">Spatial Invariant Person Search Network</td>
+<td style="text-align:center">PRCV 2018</td>
+<td style="text-align:center"><a href="https://github.com/liliangqi/person_search" target="_blank" rel="noopener">Code</a></td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">85.3/86.0</td>
+<td style="text-align:center">39.5/59.2</td>
+</tr>
+<tr>
+<td style="text-align:center">FMT: fusing multi-task convolutional neural network for person search</td>
+<td style="text-align:center">MTAP 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">77.15/79.83</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Segmentation Mask Guided End-to-End Person Search</td>
+<td style="text-align:center">Image Communication 2020</td>
+<td style="text-align:center"><a href="https://github.com/Dingyuan-Zheng/maskPS" target="_blank" rel="noopener">Dataset</a></td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">86.3/86.5</td>
+<td style="text-align:center">26.7/64.0</td>
+</tr>
+<tr>
+<td style="text-align:center">DHFF: Robust Multi-Scale Person Search by Dynamic Hierarchical Feature Fusion</td>
+<td style="text-align:center">ICIP 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">90.2/91.7</td>
+<td style="text-align:center">41.1/70.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Comprehensive Samples Constrain for Person Search</td>
+<td style="text-align:center">VCIP 2018</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">81.5/81.8</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Fast Person Search Pipeline</td>
+<td style="text-align:center">ICME 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">86.99/89.87</td>
+<td style="text-align:center">44.45/70.58</td>
+</tr>
+<tr>
+<td style="text-align:center">End-To-End Person Search Sequentially Trained On Aggregated Dataset</td>
+<td style="text-align:center">ICIP 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">79.4/80.5</td>
+<td style="text-align:center">29.4/31.9</td>
+</tr>
+<tr>
+<td style="text-align:center">Scale Voting With Pyramidal Feature Fusion Network for Person Search</td>
+<td style="text-align:center">IEEE Access 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">84.5/89.8</td>
+<td style="text-align:center">34.3/73.9</td>
+</tr>
+<tr>
+<td style="text-align:center">Structure-aware person search with self-attention and online instance aggregation matching</td>
+<td style="text-align:center">Neurocomputing</td>
+<td style="text-align:center"><a href="https://github.com/gggcy/person_search" target="_blank" rel="noopener">Code</a></td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">76.98/77.86</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Knowledge Distillation for End-to-End Person Search</td>
+<td style="text-align:center">arXiv</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">85.0/85.5</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Re-ID Driven Localization Refinement for Person Search</td>
+<td style="text-align:center">ICCV 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">93.0/94.2</td>
+<td style="text-align:center">42.9/70.2</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search Based on Improved Joint Learning Network</td>
+<td style="text-align:center">CASE 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">84.1/84.6</td>
+<td style="text-align:center">37.6/71.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Dynamic imposter based online instance matching for person search</td>
+<td style="text-align:center">PR 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">83.8/84.6</td>
+<td style="text-align:center">30.4/71.5</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search with Joint Detection, Segmentation and Re-identification</td>
+<td style="text-align:center">HCC 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">24.35/53.73</td>
+</tr>
+<tr>
+<td style="text-align:center">Improving Person Search by Adaptive Feature Pyramid-based Multi-Scale Matching</td>
+<td style="text-align:center">VCIP 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">81.2/81.5</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search Based on Attention Mechanism</td>
+<td style="text-align:center">ISCIT 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">78.9/81.9</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Hierarchical Online Instance Matching for Person Search</td>
+<td style="text-align:center">AAAI 2020</td>
+<td style="text-align:center"><a href="https://github.com/DeanChan/HOIM-PyTorch" target="_blank" rel="noopener">Code</a></td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">89.7/90.8</td>
+<td style="text-align:center">39.8/80.4</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search by Separated Modeling and A Mask-Guided Two-Stream CNN Model</td>
+<td style="text-align:center">TIP 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">83.3/83.9</td>
+<td style="text-align:center">32.8/72.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search via Deep Integrated Networks</td>
+<td style="text-align:center">ApplSci 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Improved Model Structure with Cosine Margin OIM Loss for End-to-End Person Search</td>
+<td style="text-align:center">MMM 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">83.5/84.8</td>
+<td style="text-align:center">32.8/72.2</td>
+</tr>
+<tr>
+<td style="text-align:center">Norm-Aware Embedding for Efficient Person Search</td>
+<td style="text-align:center">CVPR 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">92.1/92.9</td>
+<td style="text-align:center">44.0/81.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Efficient Person Search via Expert-Guided Knowledge Distillation</td>
+<td style="text-align:center">TCYB 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">91.1/91.9</td>
+<td style="text-align:center">34.5/59.9</td>
+</tr>
+<tr>
+<td style="text-align:center">An Iterative <strong><em>unsupervised</em></strong> Person Search Algorithm on Natural Scene Images</td>
+<td style="text-align:center">CAC 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">41.14/40.93</td>
+<td style="text-align:center">21.74/35.97</td>
+</tr>
+<tr>
+<td style="text-align:center">GAN-based person search via deep complementary classifier with center-constrained Triplet loss</td>
+<td style="text-align:center">PR 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">77.89/78.34</td>
+<td style="text-align:center">53.09/70.39</td>
+</tr>
+<tr>
+<td style="text-align:center">Robust Partial Matching for Person Search in the Wild</td>
+<td style="text-align:center">CVPR 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">88.9/89.3</td>
+<td style="text-align:center">41.9/81.4</td>
+</tr>
+<tr>
+<td style="text-align:center">End-to-End Thorough Body Perception for Person Search</td>
+<td style="text-align:center">AAAI 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">88.4/90.5</td>
+<td style="text-align:center">48.5/87.9</td>
+</tr>
+<tr>
+<td style="text-align:center">Instance Guided Proposal Network for Person Search</td>
+<td style="text-align:center">CVPR 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">90.3/91.4</td>
+<td style="text-align:center">47.2/87.0</td>
+</tr>
+<tr>
+<td style="text-align:center">TCTS: A Task-Consistent Two-stage Framework for Person Search</td>
+<td style="text-align:center">CVPR 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">93.9/95.1</td>
+<td style="text-align:center">46.8/87.5</td>
+</tr>
+<tr>
+<td style="text-align:center">Bi-directional Interaction Network for Person Search</td>
+<td style="text-align:center">CVPR 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">90.0/90.7</td>
+<td style="text-align:center">45.3/81.7</td>
+</tr>
+<tr>
+<td style="text-align:center">Joint Person Objectness and Repulsion for PersonSearch</td>
+<td style="text-align:center">TIP 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">93.23/93.83</td>
+<td style="text-align:center">52.30/71.51</td>
+</tr>
+<tr>
+<td style="text-align:center">Deep Learning-based Person Search with Visual Attention Embedding</td>
+<td style="text-align:center">COMM 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">78.3/79.2</td>
+<td style="text-align:center">35.8/84.7</td>
+</tr>
+<tr>
+<td style="text-align:center">A Modified Pedestrian Retrieval Method Based on Faster R-CNN with Integration of Pedestrian Detection and Re-Identification</td>
+<td style="text-align:center">ICALIP 2018</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Bottom-Up Foreground-Aware Feature Fusion for Person Search</td>
+<td style="text-align:center">ACM MM 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">90.7/91.6</td>
+<td style="text-align:center">42.2/81.0</td>
+</tr>
+<tr>
+<td style="text-align:center">Dual Context-Aware Refinement Network for Person Search</td>
+<td style="text-align:center">ACM MM 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">87.5/88.7</td>
+<td style="text-align:center">38.8/77.7</td>
+</tr>
+<tr>
+<td style="text-align:center">Tasks Integrated Networks: Joint Detection andRetrieval for Image Search</td>
+<td style="text-align:center">TPAMI 2019</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">86.2/86.5</td>
+<td style="text-align:center">31.8/55.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search via Anchor-Free Detection and Part-Based Group Feature Similarity Estimation</td>
+<td style="text-align:center">PRCV 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">78.2/88.7</td>
+<td style="text-align:center">57.8/72.3</td>
+</tr>
+<tr>
+<td style="text-align:center">Identity-sensitive loss guided and instance feature boosted deepembedding for person search</td>
+<td style="text-align:center">Neurocomputing 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">81.36/82.38</td>
+<td style="text-align:center">26.52/74.72</td>
+</tr>
+<tr>
+<td style="text-align:center">Diverse Knowledge Distillation for End-to-End Person Search</td>
+<td style="text-align:center">AAAI 2021</td>
+<td style="text-align:center"><a href="https://github.com/zhangxinyu-xyz/DKD-PersonSearch" target="_blank" rel="noopener">Code</a></td>
+<td style="text-align:center">✩✩✩</td>
+<td style="text-align:center">93.09/94.24</td>
+<td style="text-align:center">50.51/87.07</td>
+</tr>
+<tr>
+<td style="text-align:center">Learning Discriminative Part Features Through Attentions For Effective And Scalable Person Search</td>
+<td style="text-align:center">ICIP 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩</td>
+<td style="text-align:center">85.7/87.6</td>
+<td style="text-align:center">43.5/84.0</td>
+</tr>
+<tr>
+<td style="text-align:center">Weakly Supervised Person Search</td>
+<td style="text-align:center">DSAA 2020</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Anchor-Free Detector and Re-Identification with Joint Loss for PersonSearch</td>
+<td style="text-align:center">MCTE 2020</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✩✩</td>
+<td style="text-align:center">89.4/91.7</td>
+<td style="text-align:center">34.3/74.1</td>
+</tr>
+</tbody>
+</table>
+<p>Description of the rating$^{*}$:</p>
+<ul>
+<li>✩ = Lack of Innovation</li>
+<li>✩✩ = Inspiring</li>
+<li>✩✩✩ = Insightful</li>
+</ul>
+<p>* According to personal opinion</p>
+<h2 id="Related-Paper-List"><a href="#Related-Paper-List" class="headerlink" title="Related Paper List"></a>Related Paper List</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Paper</th>
+<th style="text-align:center">Source</th>
+<th style="text-align:center">Related Material</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Fusion-Attention Network for person search with free-form natural language</td>
+<td style="text-align:center">PRL 2018</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Cascade Attention Network for Person Search: Both Image and Text-Image Similarity Selection</td>
+<td style="text-align:center">arXiv</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Deep Adversarial Graph Attention Convolution Network for Text-Based Person Search</td>
+<td style="text-align:center">ACM MM</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Language Person Search with Mutually Connected Classification Loss</td>
+<td style="text-align:center">ICASSP 2019</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Improving Text-Based Person Search by Spatial Matching and Adaptive Threshold</td>
+<td style="text-align:center">WACV 2018</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search in Videos with One Portrait Through Visual and Temporal Links</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:center"><a href="http://qqhuang.cn/projects/eccv18-person-search/" target="_blank" rel="noopener">Home</a> <a href="https://github.com/hqqasw/person-search-PPCC" target="_blank" rel="noopener">Code</a></td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search with Natural Language Description</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:center"><a href="https://github.com/ShuangLI59/Person-Search-with-Natural-Language-Description" target="_blank" rel="noopener">Code</a></td>
+</tr>
+<tr>
+<td style="text-align:center">Cross-Modal Cross-Domain Moment Alignment Network for Person Search</td>
+<td style="text-align:center">CVPR 2020</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h2><p>该领域主要只有两个数据集 <strong><a href="http://www.liangzheng.com.cn/Project/project_prw.html" target="_blank" rel="noopener">PRW</a></strong> 以及 <strong><a href="http://www.sysu-hcp.net/resources/" target="_blank" rel="noopener">CUHK-SYSU</a></strong></p>
+<p>基于这两个数据集，有工作对部分行人图像进行了<a href="https://github.com/Dingyuan-Zheng/maskPS" target="_blank" rel="noopener">mask标注</a></p>
+<h2 id="Docker-Image-for-JDI-PS"><a href="#Docker-Image-for-JDI-PS" class="headerlink" title="Docker Image for JDI-PS"></a>Docker Image for JDI-PS</h2><ul>
+<li>首先拉取Docker镜像：<a href="https://hub.docker.com/r/4f5da2/person_search" target="_blank" rel="noopener">https://hub.docker.com/r/4f5da2/person_search</a></li>
+<li>在准备数据集和代码， 并对代码进行一下修改<ul>
+<li>在<code>tools/demo.py</code>中的<code>import matplotlib</code>下添加<code>matplotlib.use(&#39;Agg&#39;)</code>来避免对GUI相关功能的调用（因为是在docker里）</li>
+<li>由于protobuf版本发生变化，需在<code>lib/fast_rcnn/train.py</code>中增加一行<code>import google.protobuf.text_format</code></li>
+<li>按照Github上对应的readme进行编译，填入docker镜像中cuDNN的路径如下：<code>cmake .. -DUSE_MPI=ON -DCUDNN_INCLUDE=/usr/include -DCUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so</code></li>
+</ul>
+</li>
+<li>编译Caffe框架并进行训练</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>4F5DA2</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.4f5da2.com/2018/12/07/person-search-deep-selflearning-notebook/" title="Person Search深度自学笔记">http://blog.4f5da2.com/2018/12/07/person-search-deep-selflearning-notebook/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/14/vim-notebook/" rel="next" title="VIM学习笔记">
+                <i class="fa fa-chevron-left"></i> VIM学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/29/bye-2018-and-hello-2019/" rel="prev" title="新的一年">
+                新的一年 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">4F5DA2</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/0x4f5da2" title="GitHub &rarr; https://github.com/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://steamcommunity.com/id/0x4f5da2" title="Steam &rarr; https://steamcommunity.com/id/0x4f5da2" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://great-li-xin.github.io" title="https://great-li-xin.github.io" rel="noopener" target="_blank">Great-Li-Xin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.lightina.cn" title="http://blog.lightina.cn" rel="noopener" target="_blank">jacklightChen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.handora.me" title="http://blog.handora.me" rel="noopener" target="_blank">Handora</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/27854b505130" title="https://www.jianshu.com/u/27854b505130" rel="noopener" target="_blank">413x</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/oneday_pyf" title="https://blog.csdn.net/oneday_pyf" rel="noopener" target="_blank">OneDay_pyf</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yisaer.github.io" title="https://yisaer.github.io" rel="noopener" target="_blank">Yisaer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/m_oman" title="https://blog.csdn.net/m_oman" rel="noopener" target="_blank">CoCoManYY</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/yr12Dong" title="https://me.csdn.net/yr12Dong" rel="noopener" target="_blank">12Dong</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Paper-List-of-Person-Search"><span class="nav-number">2.</span> <span class="nav-text">Paper List of Person Search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-Paper-List"><span class="nav-number">3.</span> <span class="nav-text">Related Paper List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dataset"><span class="nav-number">4.</span> <span class="nav-text">Dataset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-Image-for-JDI-PS"><span class="nav-number">5.</span> <span class="nav-text">Docker Image for JDI-PS</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4F5DA2</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+  <script>
+    var _mtac = {};
+    (function() {
+      var mta = document.createElement("script");
+      mta.src = "https://pingjs.qq.com/h5/stats.js";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500654405");
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+
+
+
+  <script>
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65819248";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'WniJVKEoQxAowKO3HKtNs4vX-gzGzoHsz',
+    appKey: 'Cl8lmwarMB7thoEPmBOONarz',
+    placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！~',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div id="particles-js" style="position: fixed; top: 0px; left: 0px; z-index: -1; width: 100%; height: 100%"></div>
+  <script src="/js/src/particles.js"></script>
+  <script>particlesJS.load('particles-js', '/js/src/particlesjs-config.json')</script>
+</body>
+</html>
